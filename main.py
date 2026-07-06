@@ -18,7 +18,7 @@ from handlers import router
 vk_bot = VKBot(token=settings.BOT_TOKEN_VK)
 vk_bot.state_dispenser = BuiltinStateDispenser()
 
-async def run_bot():
+def run_bot():
     """Асинхронная функция запуска бота"""
     logger.info("Запуск VK‑бота...")
     try:
@@ -27,7 +27,7 @@ async def run_bot():
         logger.info("Обработчики загружены")
 
         # Запускаем polling — vkbottle сам управляет event loop
-        await vk_bot.run()
+        vk_bot.run()
     except KeyboardInterrupt:
         logger.info("Бот остановлен пользователем")
     except Exception as e:
@@ -36,5 +36,5 @@ async def run_bot():
         logger.info("VK‑бот остановлен")
 
 if __name__ == "__main__":
-    # ПРОСТОЙ запуск через asyncio.run() — самый надёжный способ для vkbottle 4.4.5
-    asyncio.run(run_bot())
+    # Один-единственный запуск event loop на всё приложение
+    run_bot()

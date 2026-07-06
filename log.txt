@@ -1,0 +1,6 @@
+2026-07-06 at 16:20:30 | INFO | Loop will be run forever
+2026-07-06 at 16:20:30 | WARNING | RuntimeWarning: coroutine '_drain' was never awaited
+2026-07-06 at 16:20:30 | WARNING | RuntimeWarning: coroutine 'BaseFramework.run_polling' was never awaited
+2026-07-06 at 16:31:08 | INFO | Loop will be run forever
+2026-07-06 at 16:31:08 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 16:32:16 | INFO | Caught keyboard interrupt. Shutting down...
