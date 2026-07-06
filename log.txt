@@ -4,3 +4,1086 @@
 2026-07-06 at 16:31:08 | INFO | Loop will be run forever
 2026-07-06 at 16:31:08 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
 2026-07-06 at 16:32:16 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 17:00:39 | INFO | Loop will be run forever
+2026-07-06 at 17:00:39 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 17:01:31 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f0517e423b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f050ff15630>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0517e1fc10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f050f3cbd80>]
+    └ <function run at 0x7f05155cfe20>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f050f3cbd80>,)
+    │    │                  └ <function _drain at 0x7f05155cfd90>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f051761b9a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f051761b910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f0517429480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f051757ce50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f05035c2cb0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f05035c3700>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': 'ae4dd1869a0d79b74a90aff7d300e667269e8f8b', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f0514a1ca60>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=280, date=datetime.datetime(2026, 7, 6, 14, 1, 30, tzinfo=TzInfo(0)), from_id=9028754, id=...
+                             │       └ <function FromFuncHandler.handle at 0x7f051534e3b0>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f05035b9120>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f051534e170>
+                 │    │       └ MessageMin(conversation_message_id=280, date=datetime.datetime(2026, 7, 6, 14, 1, 30, tzinfo=TzInfo(0)), from_id=9028754, id=...
+                 │    └ <function start_handler at 0x7f05035b9120>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7f05035b8b80>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит информацию о ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f0514a1d990>
+          └ MessageMin(conversation_message_id=280, date=datetime.datetime(2026, 7, 6, 14, 1, 30, tzinfo=TzInfo(0)), from_id=9028754, id=...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит и...
+                 │    │             └ 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит информацию о ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f0514a1da20>
+                 └ MessageMin(conversation_message_id=280, date=datetime.datetime(2026, 7, 6, 14, 1, 30, tzinfo=TzInfo(0)), from_id=9028754, id=...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит и...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=280, date=datetime.datetime(2026, 7, 6, 14, 1, 30, tzinfo=TzInfo(0)), from_id=9028754, id=...
+           │    └ <property object at 0x7f05152ddad0>
+           └ MessageMin(conversation_message_id=280, date=datetime.datetime(2026, 7, 6, 14, 1, 30, tzinfo=TzInfo(0)), from_id=9028754, id=...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 290, 'conversation_message_id': 281}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 290, 'conversation_message_id': 281}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f0502bbcdc0>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f0515a3e580>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f0515a3e580>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+2026-07-06 at 17:05:58 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 17:06:37 | INFO | Loop will be run forever
+2026-07-06 at 17:06:37 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 17:07:04 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7fbea1d6a3b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7fbe9df05630>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7fbea1d47c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7fbe9de6c190>]
+    └ <function run at 0x7fbe9f1bfe20>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7fbe9de6c190>,)
+    │    │                  └ <function _drain at 0x7fbe9f1bfd90>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7fbea15479a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fbea1547910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fbea1355480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fbea14a8e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7fbe8d4a4400>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7fbe8d4a4370>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '835394d2974b1c3353ceae6b4780c921428c6403', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7fbe9e948a60>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=282, date=datetime.datetime(2026, 7, 6, 14, 7, 4, tzinfo=TzInfo(0)), from_id=9028754, id=0...
+                             │       └ <function FromFuncHandler.handle at 0x7fbe9f27a3b0>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7fbe8d4a1000>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7fbe9f27a170>
+                 │    │       └ MessageMin(conversation_message_id=282, date=datetime.datetime(2026, 7, 6, 14, 7, 4, tzinfo=TzInfo(0)), from_id=9028754, id=0...
+                 │    └ <function start_handler at 0x7fbe8d4a1000>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7fbe8d4a0a60>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит информацию о ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7fbe9e949990>
+          └ MessageMin(conversation_message_id=282, date=datetime.datetime(2026, 7, 6, 14, 7, 4, tzinfo=TzInfo(0)), from_id=9028754, id=0...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит и...
+                 │    │             └ 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит информацию о ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7fbe9e949a20>
+                 └ MessageMin(conversation_message_id=282, date=datetime.datetime(2026, 7, 6, 14, 7, 4, tzinfo=TzInfo(0)), from_id=9028754, id=0...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет \nв проведении платежей, за \nпредоставленные услуги ЖКХ, а так же \nпредоставит и...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=282, date=datetime.datetime(2026, 7, 6, 14, 7, 4, tzinfo=TzInfo(0)), from_id=9028754, id=0...
+           │    └ <property object at 0x7fbe9f209ad0>
+           └ MessageMin(conversation_message_id=282, date=datetime.datetime(2026, 7, 6, 14, 7, 4, tzinfo=TzInfo(0)), from_id=9028754, id=0...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 292, 'conversation_message_id': 283}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 292, 'conversation_message_id': 283}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7fbe8dbb01c0>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7fbe9f96e580>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7fbe9f96e580>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+2026-07-06 at 17:09:05 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 17:09:19 | INFO | Loop will be run forever
+2026-07-06 at 17:09:19 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 17:09:37 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f9dbdf263b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f9dba0c1630>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f9dbdf03c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f9dba0285f0>]
+    └ <function run at 0x7f9dbb6b7e20>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f9dba0285f0>,)
+    │    │                  └ <function _drain at 0x7f9dbb6b7d90>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f9dbd6ff9a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f9dbd6ff910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f9dbd709480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f9dbd660e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f9da968cd90>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f9da968ce20>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '01a023f1c7e7722df824299b5c47c51dbbddeab7', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f9dbab04a60>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=284, date=datetime.datetime(2026, 7, 6, 14, 9, 37, tzinfo=TzInfo(0)), from_id=9028754, id=...
+                             │       └ <function FromFuncHandler.handle at 0x7f9dbac323b0>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f9da9689000>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f9dbac32170>
+                 │    │       └ MessageMin(conversation_message_id=284, date=datetime.datetime(2026, 7, 6, 14, 9, 37, tzinfo=TzInfo(0)), from_id=9028754, id=...
+                 │    └ <function start_handler at 0x7f9da9689000>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7f9da9688a60>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f9dbab05990>
+          └ MessageMin(conversation_message_id=284, date=datetime.datetime(2026, 7, 6, 14, 9, 37, tzinfo=TzInfo(0)), from_id=9028754, id=...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+                 │    │             └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f9dbab05a20>
+                 └ MessageMin(conversation_message_id=284, date=datetime.datetime(2026, 7, 6, 14, 9, 37, tzinfo=TzInfo(0)), from_id=9028754, id=...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=284, date=datetime.datetime(2026, 7, 6, 14, 9, 37, tzinfo=TzInfo(0)), from_id=9028754, id=...
+           │    └ <property object at 0x7f9dbabc1ad0>
+           └ MessageMin(conversation_message_id=284, date=datetime.datetime(2026, 7, 6, 14, 9, 37, tzinfo=TzInfo(0)), from_id=9028754, id=...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 294, 'conversation_message_id': 285}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 294, 'conversation_message_id': 285}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f9da9e6bbc0>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f9dbbd2e640>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f9dbbd2e640>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+2026-07-06 at 17:09:47 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 17:20:00 | INFO | Loop will be run forever
+2026-07-06 at 17:20:00 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 17:20:07 | ERROR | color must be instance of KeyboardButtonColor
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7fe1280aa3b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7fe124229630>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7fe128087c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7fe1241902e0>]
+    └ <function run at 0x7fe125837e20>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7fe1241902e0>,)
+    │    │                  └ <function _drain at 0x7fe125837d90>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7fe1278839a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7fe127883910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7fe127691480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7fe1277e4e50>
+    └ <Handle <TaskStepMethWrapper object at 0x7fe113805b10>()>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0x7fe113805b10>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskStepMethWrapper object at 0x7fe113805b10>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskStepMethWrapper object at 0x7fe113805b10>()>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7fe113806ad0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7fe113806a40>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': 'b1c1d10336296d9acd43bbd8c140868250dcb29e', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7fe124c84a60>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=286, date=datetime.datetime(2026, 7, 6, 14, 20, 7, tzinfo=TzInfo(0)), from_id=9028754, id=...
+                             │       └ <function FromFuncHandler.handle at 0x7fe1255b63b0>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7fe1137f91b0>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7fe1255b6170>
+                 │    │       └ MessageMin(conversation_message_id=286, date=datetime.datetime(2026, 7, 6, 14, 20, 7, tzinfo=TzInfo(0)), from_id=9028754, id=...
+                 │    └ <function start_handler at 0x7fe1137f91b0>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7fe1137f8c10>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7fe124c85990>
+          └ MessageMin(conversation_message_id=286, date=datetime.datetime(2026, 7, 6, 14, 20, 7, tzinfo=TzInfo(0)), from_id=9028754, id=...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/kb.py", line 6, in start_kb
+    Keyboard(one_time=False, inline=True)
+    └ <class 'vkbottle.tools.keyboard.keyboard.Keyboard'>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/keyboard/keyboard.py", line 26, in add
+    button = KeyboardButton.from_typed(action, color)
+             │              │          │       └ 'positive'
+             │              │          └ <vkbottle.tools.keyboard.action.Text object at 0x7fe124c92050>
+             │              └ <classmethod(<function KeyboardButton.from_typed at 0x7fe125837760>)>
+             └ <class 'vkbottle.tools.keyboard.button.KeyboardButton'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/keyboard/button.py", line 33, in from_typed
+    return cls(action, color)
+           │   │       └ 'positive'
+           │   └ <vkbottle.tools.keyboard.action.Text object at 0x7fe124c92050>
+           └ <class 'vkbottle.tools.keyboard.button.KeyboardButton'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/keyboard/button.py", line 23, in __init__
+    raise TypeError(msg)
+                    └ 'color must be instance of KeyboardButtonColor'
+
+TypeError: color must be instance of KeyboardButtonColor
+2026-07-06 at 17:23:27 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 17:24:09 | INFO | Loop will be run forever
+2026-07-06 at 17:24:09 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 17:24:21 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f5fb76b63b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f5faf835630>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f5fb7693c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f5faf7985f0>]
+    └ <function run at 0x7f5fb4e43e20>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f5faf7985f0>,)
+    │    │                  └ <function _drain at 0x7f5fb4e43d90>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f5fb6e8f9a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f5fb6e8f910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f5fb6c9d480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f5fb6df0e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f5fa2e3ace0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f5fa2e3ac50>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': 'f9fb1bb8b50899a0dcd8f34e30232de6ce79ba89', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f5fb4290a60>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=287, date=datetime.datetime(2026, 7, 6, 14, 24, 20, tzinfo=TzInfo(0)), from_id=9028754, id...
+                             │       └ <function FromFuncHandler.handle at 0x7f5fb4bc23b0>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f5fa2e2d2d0>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f5fb4bc2170>
+                 │    │       └ MessageMin(conversation_message_id=287, date=datetime.datetime(2026, 7, 6, 14, 24, 20, tzinfo=TzInfo(0)), from_id=9028754, id...
+                 │    └ <function start_handler at 0x7f5fa2e2d2d0>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7f5fa2e2cd30>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f5fb4291990>
+          └ MessageMin(conversation_message_id=287, date=datetime.datetime(2026, 7, 6, 14, 24, 20, tzinfo=TzInfo(0)), from_id=9028754, id...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+                 │    │             └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f5fb4291a20>
+                 └ MessageMin(conversation_message_id=287, date=datetime.datetime(2026, 7, 6, 14, 24, 20, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=287, date=datetime.datetime(2026, 7, 6, 14, 24, 20, tzinfo=TzInfo(0)), from_id=9028754, id...
+           │    └ <property object at 0x7f5fb4b51ad0>
+           └ MessageMin(conversation_message_id=287, date=datetime.datetime(2026, 7, 6, 14, 24, 20, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 297, 'conversation_message_id': 288}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 297, 'conversation_message_id': 288}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f5fa22f06c0>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f5fb52b2680>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f5fb52b2680>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+2026-07-06 at 17:26:53 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define `MessagesSendUserIdsResponseItem`, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f5fb76b63b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f5faf835630>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f5fb7693c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f5faf7985f0>]
+    └ <function run at 0x7f5fb4e43e20>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f5faf7985f0>,)
+    │    │                  └ <function _drain at 0x7f5fb4e43d90>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f5fb6e8f9a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f5fb6e8f910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f5fb6c9d480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f5fb6df0e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f5fa2e3ace0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f5fa2e3ac50>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '0368b32aee87b05cd61fcaa7aee5efe71d67aded', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f5fb4290a60>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=289, date=datetime.datetime(2026, 7, 6, 14, 26, 53, tzinfo=TzInfo(0)), from_id=9028754, id...
+                             │       └ <function FromFuncHandler.handle at 0x7f5fb4bc23b0>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f5fa2e2d2d0>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f5fb4bc2170>
+                 │    │       └ MessageMin(conversation_message_id=289, date=datetime.datetime(2026, 7, 6, 14, 26, 53, tzinfo=TzInfo(0)), from_id=9028754, id...
+                 │    └ <function start_handler at 0x7f5fa2e2d2d0>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7f5fa2e2cd30>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f5fb4291990>
+          └ MessageMin(conversation_message_id=289, date=datetime.datetime(2026, 7, 6, 14, 26, 53, tzinfo=TzInfo(0)), from_id=9028754, id...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+                 │    │             └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f5fb4291a20>
+                 └ MessageMin(conversation_message_id=289, date=datetime.datetime(2026, 7, 6, 14, 26, 53, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=289, date=datetime.datetime(2026, 7, 6, 14, 26, 53, tzinfo=TzInfo(0)), from_id=9028754, id...
+           │    └ <property object at 0x7f5fb4b51ad0>
+           └ MessageMin(conversation_message_id=289, date=datetime.datetime(2026, 7, 6, 14, 26, 53, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 299, 'conversation_message_id': 290}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 299, 'conversation_message_id': 290}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f5fa22f1100>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f5fa22f06c0>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f5fa22f06c0>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define `MessagesSendUserIdsResponseItem`, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.13/u/class-not-fully-defined
+2026-07-06 at 17:33:52 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 19:17:45 | INFO | Loop will be run forever
+2026-07-06 at 19:17:45 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:18:32 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.12/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f09cafaa3b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f09c714d510>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f09caf87c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f09c705bd80>]
+    └ <function run at 0x7f09c86ff7f0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f09c705bd80>,)
+    │    │                  └ <function _drain at 0x7f09c86ff760>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f09ca7839a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f09ca783910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f09ca78d480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f09ca6e4e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f09b6703d30>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f09b6703ca0>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '9c6ccfa8d8a8bbd0d1f1d571496657d53d8be6ee', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f09c7b54430>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=291, date=datetime.datetime(2026, 7, 6, 16, 18, 32, tzinfo=TzInfo(0)), from_id=9028754, id...
+                             │       └ <function FromFuncHandler.handle at 0x7f09c7c8dd80>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f09b67209d0>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f09c7c8db40>
+                 │    │       └ MessageMin(conversation_message_id=291, date=datetime.datetime(2026, 7, 6, 16, 18, 32, tzinfo=TzInfo(0)), from_id=9028754, id...
+                 │    └ <function start_handler at 0x7f09b67209d0>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text, keyboard=kb.start_kb())
+          │       │      │    │                    │  └ <function start_kb at 0x7f09b6720430>
+          │       │      │    │                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f09c7b55360>
+          └ MessageMin(conversation_message_id=291, date=datetime.datetime(2026, 7, 6, 16, 18, 32, tzinfo=TzInfo(0)), from_id=9028754, id...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+                 │    │             └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f09c7b553f0>
+                 └ MessageMin(conversation_message_id=291, date=datetime.datetime(2026, 7, 6, 16, 18, 32, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=291, date=datetime.datetime(2026, 7, 6, 16, 18, 32, tzinfo=TzInfo(0)), from_id=9028754, id...
+           │    └ <property object at 0x7f09c7b19f30>
+           └ MessageMin(conversation_message_id=291, date=datetime.datetime(2026, 7, 6, 16, 18, 32, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 301, 'conversation_message_id': 292}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 301, 'conversation_message_id': 292}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f09b65721c0>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f09c8d65ec0>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f09c8d65ec0>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.12/u/class-not-fully-defined
+2026-07-06 at 19:22:17 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 19:31:59 | INFO | Loop will be run forever
+2026-07-06 at 19:31:59 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:32:11 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.12/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 39, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f1d887463b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 29, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f1d848b9510>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f1d88723c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f1d847c3d80>]
+    └ <function run at 0x7f1d85e6f7f0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f1d847c3d80>,)
+    │    │                  └ <function _drain at 0x7f1d85e6f760>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f1d87f1f9a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f1d87f1f910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f1d87d2d480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f1d87e80e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f1d73e775b0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f1d73e77760>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': 'c5cbd5d778650d5189b217d7d4bdc9fdce5fc34b', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f1d852c4430>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=293, date=datetime.datetime(2026, 7, 6, 16, 32, 10, tzinfo=TzInfo(0)), from_id=9028754, id...
+                             │       └ <function FromFuncHandler.handle at 0x7f1d853fdd80>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f1d73e9c940>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f1d853fdb40>
+                 │    │       └ MessageMin(conversation_message_id=293, date=datetime.datetime(2026, 7, 6, 16, 32, 10, tzinfo=TzInfo(0)), from_id=9028754, id...
+                 │    └ <function start_handler at 0x7f1d73e9c940>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text)
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f1d852c5360>
+          └ MessageMin(conversation_message_id=293, date=datetime.datetime(2026, 7, 6, 16, 32, 10, tzinfo=TzInfo(0)), from_id=9028754, id...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+                 │    │             └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f1d852c53f0>
+                 └ MessageMin(conversation_message_id=293, date=datetime.datetime(2026, 7, 6, 16, 32, 10, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=293, date=datetime.datetime(2026, 7, 6, 16, 32, 10, tzinfo=TzInfo(0)), from_id=9028754, id...
+           │    └ <property object at 0x7f1d85289ee0>
+           └ MessageMin(conversation_message_id=293, date=datetime.datetime(2026, 7, 6, 16, 32, 10, tzinfo=TzInfo(0)), from_id=9028754, id...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 303, 'conversation_message_id': 294}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 303, 'conversation_message_id': 294}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f1d73cb1780>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f1d864d9d80>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f1d864d9d80>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.12/u/class-not-fully-defined
+2026-07-06 at 19:36:20 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 19:39:39 | INFO | Loop will be run forever
+2026-07-06 at 19:39:39 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:39:39 | ERROR | Unhandled exception in task
+Traceback (most recent call last):
+
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 33, in run_polling
+    async for event in _polling.listen():
+                       │        └ <function BasePolling.listen at 0x7fbdc27f1bd0>
+                       └ <vkbottle.polling.bot_polling.BotPolling object at 0x7fbdb1d37850>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/polling/base.py", line 78, in listen
+    server = self.restore_server_ts(await self.get_server())
+             │    │                       │    └ <function BotPolling.get_server at 0x7fbdc27f20e0>
+             │    │                       └ <vkbottle.polling.bot_polling.BotPolling object at 0x7fbdb1d37850>
+             │    └ <function BotPolling.restore_server_ts at 0x7fbdc27f1f30>
+             └ <vkbottle.polling.bot_polling.BotPolling object at 0x7fbdb1d37850>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/polling/bot_polling.py", line 100, in get_server
+    response = (await self.api.request("groups.getById", {}))["response"]
+                      │    └ <property object at 0x7fbdc27f9080>
+                      └ <vkbottle.polling.bot_polling.BotPolling object at 0x7fbdb1d37850>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 79, in request
+    return await self.validate_response(method, data, response)  # type: ignore
+                 │    │                 │       │     └ '{"response":{"groups":[{"id":236899277,"name":"Мои боты","screen_name":"club236899277","is_closed":2,"type":"group","photo_5...
+                 │    │                 │       └ {}
+                 │    │                 └ 'groups.getById'
+                 │    └ False
+                 └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+
+TypeError: 'bool' object is not callable
+2026-07-06 at 19:51:27 | INFO | Loop will be run forever
+2026-07-06 at 19:51:27 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:51:27 | ERROR | Unhandled exception in task
+Traceback (most recent call last):
+
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 33, in run_polling
+    async for event in _polling.listen():
+                       │        └ <function BasePolling.listen at 0x7f73444db2e0>
+                       └ <vkbottle.polling.bot_polling.BotPolling object at 0x7f7333a0ea70>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/polling/base.py", line 78, in listen
+    server = self.restore_server_ts(await self.get_server())
+             │    │                       │    └ <function BotPolling.get_server at 0x7f73444db7f0>
+             │    │                       └ <vkbottle.polling.bot_polling.BotPolling object at 0x7f7333a0ea70>
+             │    └ <function BotPolling.restore_server_ts at 0x7f73444db640>
+             └ <vkbottle.polling.bot_polling.BotPolling object at 0x7f7333a0ea70>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/polling/bot_polling.py", line 100, in get_server
+    response = (await self.api.request("groups.getById", {}))["response"]
+                      │    └ <property object at 0x7f73444e9e90>
+                      └ <vkbottle.polling.bot_polling.BotPolling object at 0x7f7333a0ea70>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 79, in request
+    return await self.validate_response(method, data, response)  # type: ignore
+                 │    │                 │       │     └ '{"response":{"groups":[{"id":236899277,"name":"Мои боты","screen_name":"club236899277","is_closed":2,"type":"group","photo_5...
+                 │    │                 │       └ {}
+                 │    │                 └ 'groups.getById'
+                 │    └ False
+                 └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+
+TypeError: 'bool' object is not callable
+2026-07-06 at 19:52:43 | INFO | Loop will be run forever
+2026-07-06 at 19:52:43 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:52:54 | ERROR | `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.11/u/class-not-fully-defined
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 39, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f55e8f623b0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 29, in run_bot
+    vk_bot.run()
+    │      └ <function BaseFramework.run at 0x7f55e55c7400>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f55e8f3fc10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 65, in run
+    _run(*tasks, on_startup=startup, on_shutdown=shutdown)
+    │     │                 │                    └ []
+    │     │                 └ []
+    │     └ [<coroutine object BaseFramework.run_polling at 0x7f55e52a74c0>]
+    └ <function run at 0x7f55e661df30>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/_runner.py", line 59, in run
+    loop.run_until_complete(_drain(tasks))
+    │    │                  │      └ (<coroutine object BaseFramework.run_polling at 0x7f55e52a74c0>,)
+    │    │                  └ <function _drain at 0x7f55e661dea0>
+    │    └ <function BaseEventLoop.run_until_complete at 0x7f55e87439a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f55e8743910>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f55e8551480>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f55e86a4e50>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f55d4773be0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f55d4773c70>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '1341a627ef1c0e15fe817d32993e1eee35eb7a76', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f55e5d927a0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.bas...
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 78, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=295, date=datetime.datetime(2026, 7, 6, 16, 52, 53, tzinfo=TzInfo(UTC)), from_id=9028754, ...
+                             │       └ <function FromFuncHandler.handle at 0x7f55e5d90160>
+                             └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 46, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_handler at 0x7f55d4785b40>
+                 │    │       │        │            └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f55e6657eb0>
+                 │    │       └ MessageMin(conversation_message_id=295, date=datetime.datetime(2026, 7, 6, 16, 52, 53, tzinfo=TzInfo(UTC)), from_id=9028754, ...
+                 │    └ <function start_handler at 0x7f55d4785b40>
+                 └ <FromFuncHandler start_handler blocking=True rules=(<handlers.MyRule>, <vkbottle.dispatch.rules.base.VBMLRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 65, in start_handler
+    await message.answer(text.hello_text)
+          │       │      │    └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+          │       │      └ <module 'text' from '/home/sanyabanda23/app/opl_jkh_vk/text.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f55e5d936d0>
+          └ MessageMin(conversation_message_id=295, date=datetime.datetime(2026, 7, 6, 16, 52, 53, tzinfo=TzInfo(UTC)), from_id=9028754, ...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 250, in answer
+    return await self._send_chunked(message, data)
+                 │    │             │        └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+                 │    │             └ 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информацию о ранее ...
+                 │    └ <function BaseMessageMin._send_chunked at 0x7f55e5d93760>
+                 └ MessageMin(conversation_message_id=295, date=datetime.datetime(2026, 7, 6, 16, 52, 53, tzinfo=TzInfo(UTC)), from_id=9028754, ...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 271, in _send_chunked
+    (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+           │    │                               │    │           └ {'message': 'Приветствую, этот бот поможет в проведении платежей, за предоставленные услуги ЖКХ, а так же предоставит информа...
+           │    │                               │    └ 2000000001
+           │    │                               └ MessageMin(conversation_message_id=295, date=datetime.datetime(2026, 7, 6, 16, 52, 53, tzinfo=TzInfo(UTC)), from_id=9028754, ...
+           │    └ <property object at 0x7f55e5d5a4d0>
+           └ MessageMin(conversation_message_id=295, date=datetime.datetime(2026, 7, 6, 16, 52, 53, tzinfo=TzInfo(UTC)), from_id=9028754, ...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 217, in send
+    return model(**response).response
+           │       └ {'response': [{'peer_id': 2000000001, 'message_id': 305, 'conversation_message_id': 296}]}
+           └ <class 'vkbottle_types.responses.messages.MessagesSendPeerIdsResponse'>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     │    │                                      │                   └ MessagesSendPeerIdsResponse()
+                     │    │                                      └ {'response': [{'peer_id': 2000000001, 'message_id': 305, 'conversation_message_id': 296}]}
+                     │    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f55d4fb8dc0>
+                     └ MessagesSendPeerIdsResponse()
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/pydantic/_internal/_mock_val_ser.py", line 100, in __getattr__
+    raise PydanticUserError(self._error_message, code=self._code)
+          │                 │    │                    │    └ <member '_code' of 'MockValSer' objects>
+          │                 │    │                    └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f55e6e29340>
+          │                 │    └ <member '_error_message' of 'MockValSer' objects>
+          │                 └ <pydantic._internal._mock_val_ser.MockValSer object at 0x7f55e6e29340>
+          └ <class 'pydantic.errors.PydanticUserError'>
+
+pydantic.errors.PydanticUserError: `MessagesSendPeerIdsResponse` is not fully defined; you should define all referenced types, then call `MessagesSendPeerIdsResponse.model_rebuild()`.
+
+For further information visit https://errors.pydantic.dev/2.11/u/class-not-fully-defined
+2026-07-06 at 19:53:05 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 19:55:25 | INFO | Loop will be run forever
+2026-07-06 at 19:55:25 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:57:48 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-06 at 19:57:55 | INFO | Loop will be run forever
+2026-07-06 at 19:57:55 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-06 at 19:58:44 | INFO | Caught keyboard interrupt. Shutting down...

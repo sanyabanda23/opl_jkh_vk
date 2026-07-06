@@ -1,16 +1,18 @@
 from vkbottle.bot import Message
 from vkbottle import Keyboard, Text, OpenLink
+from vkbottle.tools.keyboard.color import KeyboardButtonColor
+
 
 def start_kb():
     keyboard = (
         Keyboard(one_time=False, inline=True)
-        .add(Text("✅Войти в Сбербанк Онлайн", payload={"cmd": "start_sbol"}))
+        .add(Text("✅Войти в Сбербанк Онлайн", payload={"cmd": "start_sbol"}), KeyboardButtonColor.POSITIVE)
         .row()
-        .add(Text("❌Очистить чат", payload={"cmd": "clear_chat"}))
+        .add(Text("❌Очистить чат", payload={"cmd": "clear_chat"}), KeyboardButtonColor.PRIMARY)
         .row()
-        .add(Text("🔎Информация о платежах и реквизитах", payload={"cmd": "info_pay_rek"}))
+        .add(Text("🔎Информация", payload={"cmd": "info_pay_rek"}))
     )
-    return keyboard
+    return keyboard.get_json()
 
 def vibor_info_rek_kb():
     keyboard = (

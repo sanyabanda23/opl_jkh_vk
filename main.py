@@ -10,7 +10,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
 from config import settings
 from handlers import router
 
@@ -27,7 +26,7 @@ def run_bot():
         logger.info("Обработчики загружены")
 
         # Запускаем polling — vkbottle сам управляет event loop
-        vk_bot.run()
+        vk_bot.run_forever()
     except KeyboardInterrupt:
         logger.info("Бот остановлен пользователем")
     except Exception as e:
