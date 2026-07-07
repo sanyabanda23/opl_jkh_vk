@@ -21,9 +21,9 @@ def vibor_info_rek_kb():
         .row()
         .add(Text("🔎Информация о реквизитах для оплаты", payload={"cmd": "info_rek"}))
         .row()
-        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}))
+        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}), KeyboardButtonColor.PRIMARY)
     )
-    return keyboard
+    return keyboard.get_json()
 
 def vibor_info_post_lsch_kb():
     keyboard = (

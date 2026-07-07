@@ -63,3 +63,33 @@ async def start_handler(message: Message):
         pass  # Состояние не найдено — игнорируем
     logger.info("Вызвано главное меню")
     await message.answer(text.hello_text, keyboard=kb.start_kb())
+
+### Реакция на кнопку гравное меню
+@router.message(MyRule(), PayloadABCRule('main_menu'))
+async def main_menu(message: Message):
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    driver_jkh.quit_driver()
+    logger.info("Вызвано главное меню")
+    await message.answer('Главное меню', keyboard=kb.start_kb())
+
+@router.message(MyRule(), PayloadABCRule('main_menu_info'))
+async def main_menu_info(message: Message):
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    logger.info("Вызвано главное меню")
+    await message.answer('Главное меню', keyboard=kb.start_kb())
+
+### Формирование отчетов
+@router.message(MyRule(), PayloadABCRule('info_pay_rek'))
+async def vibor_info(message: Message):
+    logger.debug(f"Вызвано меню отчетов. cmd={message.payload}")
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    await message.answer(text.vibor_info, keyboard=kb.vibor_info_rek_kb())
