@@ -32,9 +32,9 @@ def vibor_info_post_lsch_kb():
         .row()
         .add(Text("🔎Лицевые счета для оплаты", payload={"cmd": "info_lsch"}))
         .row()
-        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}))
+        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}), KeyboardButtonColor.PRIMARY)
     )
-    return keyboard
+    return keyboard.get_json()
 
 def vibor_info_pay():
     keyboard = (
@@ -43,6 +43,6 @@ def vibor_info_pay():
         .row()
         .add(Text("🔎Информация по объекту и поставщику", payload={"cmd": "info_pay_kf_kp"}))
         .row()
-        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}))
+        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}), KeyboardButtonColor.PRIMARY)
     )
     return keyboard
