@@ -121,16 +121,17 @@ async def vibor_rek_pos_info(message: Message):
     except KeyError:
         pass  # Состояние не найдено — игнорируем
     await message.answer('Отчет формируется')
-    utils.select_from_postav()
-    # Загружаем документ
-    upload_start = time.time()
-    doc = await doc_uploader.upload(
+    if utils.select_from_postav():
+        # Загружаем документ
+        upload_start = time.time()
+        doc = await doc_uploader.upload(
             file_source="postavshiki.pdf",
             peer_id=message.peer_id,
-        )
-    upload_end = time.time()
-    logger.debug(f"Загрузка файла: {upload_end - upload_start:.2f} сек")
-    await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
+            )
+        upload_end = time.time()
+        logger.debug(f"Загрузка файла: {upload_end - upload_start:.2f} сек")
+    attachment = f"doc{doc.owner_id}_{doc.id}"
+    await message.answer('Отправляю вам отчет в формате PDF', attachment=attachment)
 
 @router.message(MyRule(), PayloadABCRule('info_lsch'))
 async def vibor_rek_lsch_info(message: Message):
@@ -151,7 +152,7 @@ async def vibor_rek_lsch_info(message: Message):
     logger.debug(f"Загрузка файла: {upload_end - upload_start:.2f} сек")
     await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
 
-@router.message(state=None, payload={"cmd": "info_pay_mon"})
+@router.message(MyRule(), payload={"cmd": "info_pay_mon"})
 async def info_pay_mon(message: Message):
     logger.debug(f"Лицевые счета. cmd={message.payload}")
     try:
@@ -161,7 +162,7 @@ async def info_pay_mon(message: Message):
     await message.answer(text.info_pay_mon)
     await vk_bot.state_dispenser.set(message.peer_id, Info_pay_mon.MON)
 
-@router.message(state=Info_pay_mon.MON)
+@router.message(MyRule(), state=Info_pay_mon.MON)
 async def info_pay_mon_1(message: Message):
     data_mon = message.text
     await message.answer('Отчет формируется')

@@ -1241,3 +1241,681 @@ KeyError: 2000000001
 2026-07-08 at 19:03:00 | INFO | Caught keyboard interrupt. Shutting down...
 2026-07-08 at 19:03:53 | INFO | Loop will be run forever
 2026-07-08 at 19:03:53 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-09 at 17:39:18 | INFO | Loop will be run forever
+2026-07-09 at 17:39:18 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-09 at 17:39:31 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-09 at 17:39:37 | INFO | Loop will be run forever
+2026-07-09 at 17:39:37 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-09 at 17:40:17 | ERROR | Flood control
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7efd1dd9e290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7efd1a28dab0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7efd1dd7bc10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7efd18239a20>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7efd1be710f0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7efd1dd7bc10>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7efd1d577880>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7efd1be710f0>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efd1d5777f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efd1d581360>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efd1d4d8d30>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7efd1be714b0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7efd1be71390>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '35777fcc5daeaebe68c5c472f3f052bbcdcb1cda', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7efd18279cf0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=494, date=1783608016, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7efd1823b7f0>
+                             └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_pos_info at 0x7efd09246050>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7efd1823b640>
+                 │    │       └ MessageMin(conversation_message_id=494, date=1783608016, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_pos_info at 0x7efd09246050>
+                 └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 127, in vibor_rek_pos_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7efd1a2929e0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'postavshiki.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7efd1a292a70>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 48, in raw_upload
+    await self.api.request(
+          │    │   └ <function API.request at 0x7efd1a28cb80>
+          │    └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 78, in request
+    return await self.validate_response(method, data, response)  # type: ignore
+                 │    │                 │       │     └ '{"error":{"error_code":9,"error_msg":"Flood control","request_params":[{"key":"v","value":"5.199"},{"key":"method","value":"...
+                 │    │                 │       └ {'title': 'postavshiki.pdf', 'file': '2000000001|0|-1|909318|a3f9ccb310|pdf|22327|postavshiki.pdf|b13eff249929a22c467c28af8cf...
+                 │    │                 └ 'docs.save'
+                 │    └ <function API.validate_response at 0x7efd1a28cca0>
+                 └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 103, in validate_response
+    response = await validator.validate(method, data, response, self)  # type: ignore
+                     │         │        │       │     │         └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+                     │         │        │       │     └ {'error': {'error_msg': 'Flood control', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'method', 'value': 'docs....
+                     │         │        │       └ {'title': 'postavshiki.pdf', 'file': '2000000001|0|-1|909318|a3f9ccb310|pdf|22327|postavshiki.pdf|b13eff249929a22c467c28af8cf...
+                     │         │        └ 'docs.save'
+                     │         └ <function VKAPIErrorResponseValidator.validate at 0x7efd1a28c1f0>
+                     └ <vkbottle.api.response_validator.vk_api_error_validator.VKAPIErrorResponseValidator object at 0x7efd1a32f640>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/response_validator/vk_api_error_validator.py", line 48, in validate
+    raise VKAPIError[code](**error)
+          │          │       └ {'error_msg': 'Flood control', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'method', 'value': 'docs.save'}, {'...
+          │          └ 9
+          └ <class 'vkbottle.exception_factory.base_exceptions.VKAPIError'>
+
+vkbottle.exception_factory.base_exceptions.VKAPIError_9: Flood control
+2026-07-09 at 17:40:34 | ERROR | Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7efd1dd9e290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7efd1a28dab0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7efd1dd7bc10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7efd18239a20>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7efd1be710f0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7efd1dd7bc10>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7efd1d577880>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7efd1be710f0>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efd1d5777f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efd1d581360>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efd1d4d8d30>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7efd1be714b0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7efd1be71390>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': 'e6b02293ad51fe08d87e3874b7911d4aa3ded224', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7efd18279cf0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=496, date=1783608033, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7efd1823b7f0>
+                             └ <FromFuncHandler vibor_rek_lsch_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_lsch_info at 0x7efd092460e0>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_lsch_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7efd1823b640>
+                 │    │       └ MessageMin(conversation_message_id=496, date=1783608033, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_lsch_info at 0x7efd092460e0>
+                 └ <FromFuncHandler vibor_rek_lsch_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 146, in vibor_rek_lsch_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7efd1a2929e0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'l_sch.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7efd1a292a70>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 45, in raw_upload
+    uploader = await self.upload_files(server["upload_url"], {"file": file})
+                     │    │            │                              └ <_io.BytesIO object at 0x7efd1bd160c0>
+                     │    │            └ {'upload_url': 'https://pu.vk.com/c902018/upload.php?act=add_doc_new&mid=-236899277&aid=-1&gid=0&type=0&peer_id=2000000001&rh...
+                     │    └ <function BaseUploader.upload_files at 0x7efd1a292200>
+                     └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/base.py", line 48, in upload_files
+    return json.loads(raw_response)
+           │    │     └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │    └ <function loads at 0x7efd1cce6440>
+           └ <module 'json' from '/usr/lib/python3.10/json/__init__.py'>
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           │                │      └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │                └ <function JSONDecoder.decode at 0x7efd1cce5cf0>
+           └ <json.decoder.JSONDecoder object at 0x7efd1ccd9b10>
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               │    │          │      │  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    │          │      └ <built-in method match of re.Pattern object at 0x7efd1d472cf0>
+               │    │          └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    └ <function JSONDecoder.raw_decode at 0x7efd1cce5d80>
+               └ <json.decoder.JSONDecoder object at 0x7efd1ccd9b10>
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+          │                                  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+          └ <class 'json.decoder.JSONDecodeError'>
+
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-07-09 at 17:40:53 | ERROR | Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 40, in <module>
+    run_bot()
+    └ <function run_bot at 0x7efd1dd9e290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 30, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7efd1a28dab0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7efd1dd7bc10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7efd18239a20>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7efd1be710f0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7efd1dd7bc10>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7efd1d577880>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7efd1be710f0>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7efd1d5777f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7efd1d581360>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7efd1d4d8d30>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7efd1be714b0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7efd1be71390>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '341434bd0e89e1c31e3d05bc0bd052b5c699a739', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7efd18279cf0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=498, date=1783608052, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7efd1823b7f0>
+                             └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_pos_info at 0x7efd09246050>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7efd1823b640>
+                 │    │       └ MessageMin(conversation_message_id=498, date=1783608052, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_pos_info at 0x7efd09246050>
+                 └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 127, in vibor_rek_pos_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7efd1a2929e0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'postavshiki.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7efd1a292a70>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 45, in raw_upload
+    uploader = await self.upload_files(server["upload_url"], {"file": file})
+                     │    │            │                              └ <_io.BytesIO object at 0x7efd1bba47c0>
+                     │    │            └ {'upload_url': 'https://pu.vk.com/c903718/upload.php?act=add_doc_new&mid=-236899277&aid=-1&gid=0&type=0&peer_id=2000000001&rh...
+                     │    └ <function BaseUploader.upload_files at 0x7efd1a292200>
+                     └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/base.py", line 48, in upload_files
+    return json.loads(raw_response)
+           │    │     └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │    └ <function loads at 0x7efd1cce6440>
+           └ <module 'json' from '/usr/lib/python3.10/json/__init__.py'>
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           │                │      └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │                └ <function JSONDecoder.decode at 0x7efd1cce5cf0>
+           └ <json.decoder.JSONDecoder object at 0x7efd1ccd9b10>
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               │    │          │      │  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    │          │      └ <built-in method match of re.Pattern object at 0x7efd1d472cf0>
+               │    │          └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    └ <function JSONDecoder.raw_decode at 0x7efd1cce5d80>
+               └ <json.decoder.JSONDecoder object at 0x7efd1ccd9b10>
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+          │                                  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+          └ <class 'json.decoder.JSONDecodeError'>
+
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-07-09 at 17:43:53 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-09 at 17:47:13 | INFO | Loop will be run forever
+2026-07-09 at 17:47:13 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-09 at 17:47:25 | ERROR | Flood control
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 39, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f333d886290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 29, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f3338e21ab0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f333d863c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f3333f89a20>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f3328b8f400>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f333d863c10>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f333d063880>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f3328b8f400>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f333d0637f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f333ce71360>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f333cfc4d30>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f3328b8ed40>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f3328b8eda0>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '00b765c445daf2a9d26b349e53467e4085f80e47', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f3333fc5cf0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=519, date=1783608444, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f3333f8b7f0>
+                             └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_pos_info at 0x7f3328ba6170>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f3333f8b640>
+                 │    │       └ MessageMin(conversation_message_id=519, date=1783608444, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_pos_info at 0x7f3328ba6170>
+                 └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 127, in vibor_rek_pos_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7f333a48e9e0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'postavshiki.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7f333a48ea70>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 48, in raw_upload
+    await self.api.request(
+          │    │   └ <function API.request at 0x7f3338e20b80>
+          │    └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 78, in request
+    return await self.validate_response(method, data, response)  # type: ignore
+                 │    │                 │       │     └ '{"error":{"error_code":9,"error_msg":"Flood control","request_params":[{"key":"v","value":"5.199"},{"key":"method","value":"...
+                 │    │                 │       └ {'title': 'postavshiki.pdf', 'file': '2000000001|0|-1|909528|d26d430fa3|pdf|22327|postavshiki.pdf|236c0d31130cdc92cd5bbe0a0cf...
+                 │    │                 └ 'docs.save'
+                 │    └ <function API.validate_response at 0x7f3338e20ca0>
+                 └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 103, in validate_response
+    response = await validator.validate(method, data, response, self)  # type: ignore
+                     │         │        │       │     │         └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+                     │         │        │       │     └ {'error': {'error_msg': 'Flood control', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'method', 'value': 'docs....
+                     │         │        │       └ {'title': 'postavshiki.pdf', 'file': '2000000001|0|-1|909528|d26d430fa3|pdf|22327|postavshiki.pdf|236c0d31130cdc92cd5bbe0a0cf...
+                     │         │        └ 'docs.save'
+                     │         └ <function VKAPIErrorResponseValidator.validate at 0x7f3338e201f0>
+                     └ <vkbottle.api.response_validator.vk_api_error_validator.VKAPIErrorResponseValidator object at 0x7f333a493610>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/response_validator/vk_api_error_validator.py", line 48, in validate
+    raise VKAPIError[code](**error)
+          │          │       └ {'error_msg': 'Flood control', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'method', 'value': 'docs.save'}, {'...
+          │          └ 9
+          └ <class 'vkbottle.exception_factory.base_exceptions.VKAPIError'>
+
+vkbottle.exception_factory.base_exceptions.VKAPIError_9: Flood control
+2026-07-09 at 17:48:59 | ERROR | Flood control
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 39, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f333d886290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 29, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f3338e21ab0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f333d863c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f3333f89a20>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f3328b8f400>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f333d863c10>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f333d063880>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f3328b8f400>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f333d0637f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f333ce71360>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f333cfc4d30>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f3328b8ed40>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f3328b8eda0>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '4c0804c6894b9434df95ed398b035ae1e975b703', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f3333fc5cf0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=521, date=1783608538, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f3333f8b7f0>
+                             └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_pos_info at 0x7f3328ba6170>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f3333f8b640>
+                 │    │       └ MessageMin(conversation_message_id=521, date=1783608538, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_pos_info at 0x7f3328ba6170>
+                 └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 127, in vibor_rek_pos_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7f333a48e9e0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'postavshiki.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7f333a48ea70>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 48, in raw_upload
+    await self.api.request(
+          │    │   └ <function API.request at 0x7f3338e20b80>
+          │    └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 78, in request
+    return await self.validate_response(method, data, response)  # type: ignore
+                 │    │                 │       │     └ '{"error":{"error_code":9,"error_msg":"Flood control","request_params":[{"key":"v","value":"5.199"},{"key":"method","value":"...
+                 │    │                 │       └ {'title': 'postavshiki.pdf', 'file': '2000000001|0|-1|909518|1651b6c0ec|pdf|22327|postavshiki.pdf|52e548f8f07ae80fad3c96b7aa9...
+                 │    │                 └ 'docs.save'
+                 │    └ <function API.validate_response at 0x7f3338e20ca0>
+                 └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 103, in validate_response
+    response = await validator.validate(method, data, response, self)  # type: ignore
+                     │         │        │       │     │         └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+                     │         │        │       │     └ {'error': {'error_msg': 'Flood control', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'method', 'value': 'docs....
+                     │         │        │       └ {'title': 'postavshiki.pdf', 'file': '2000000001|0|-1|909518|1651b6c0ec|pdf|22327|postavshiki.pdf|52e548f8f07ae80fad3c96b7aa9...
+                     │         │        └ 'docs.save'
+                     │         └ <function VKAPIErrorResponseValidator.validate at 0x7f3338e201f0>
+                     └ <vkbottle.api.response_validator.vk_api_error_validator.VKAPIErrorResponseValidator object at 0x7f333a493610>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/response_validator/vk_api_error_validator.py", line 48, in validate
+    raise VKAPIError[code](**error)
+          │          │       └ {'error_msg': 'Flood control', 'request_params': [{'key': 'v', 'value': '5.199'}, {'key': 'method', 'value': 'docs.save'}, {'...
+          │          └ 9
+          └ <class 'vkbottle.exception_factory.base_exceptions.VKAPIError'>
+
+vkbottle.exception_factory.base_exceptions.VKAPIError_9: Flood control
+2026-07-09 at 17:49:18 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-09 at 18:10:09 | INFO | Loop will be run forever
+2026-07-09 at 18:10:09 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-09 at 18:10:22 | ERROR | Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 39, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f7f187ba290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 29, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f7f14c55ab0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f7f18797c10>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f7f12ee9a20>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f7f03aaf640>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f7f18797c10>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f7f17f9b880>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f7f03aaf640>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f7f17f9b7f0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f7f17da9360>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f7f17efcd30>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f7f03aafb20>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f7f03aafac0>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '2952a5d020537158fb1349404272db43fa783753', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f7f12f25cf0>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=529, date=1783609822, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f7f12eeb7f0>
+                             └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_pos_info at 0x7f7f03ac60e0>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f7f12eeb640>
+                 │    │       └ MessageMin(conversation_message_id=529, date=1783609822, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_pos_info at 0x7f7f03ac60e0>
+                 └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 127, in vibor_rek_pos_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7f7f13d669e0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'postavshiki.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7f7f13d66a70>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 45, in raw_upload
+    uploader = await self.upload_files(server["upload_url"], {"file": file})
+                     │    │            │                              └ <_io.BytesIO object at 0x7f7f14eb4ea0>
+                     │    │            └ {'upload_url': 'https://pu.vk.com/c903718/upload.php?act=add_doc_new&mid=-236899277&aid=-1&gid=0&type=0&peer_id=2000000001&rh...
+                     │    └ <function BaseUploader.upload_files at 0x7f7f13d66200>
+                     └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/base.py", line 48, in upload_files
+    return json.loads(raw_response)
+           │    │     └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │    └ <function loads at 0x7f7f1770a440>
+           └ <module 'json' from '/usr/lib/python3.10/json/__init__.py'>
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           │                │      └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │                └ <function JSONDecoder.decode at 0x7f7f17709cf0>
+           └ <json.decoder.JSONDecoder object at 0x7f7f176fdb10>
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               │    │          │      │  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    │          │      └ <built-in method match of re.Pattern object at 0x7f7f17e9acf0>
+               │    │          └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    └ <function JSONDecoder.raw_decode at 0x7f7f17709d80>
+               └ <json.decoder.JSONDecoder object at 0x7f7f176fdb10>
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+          │                                  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+          └ <class 'json.decoder.JSONDecodeError'>
+
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-07-09 at 18:31:05 | INFO | Caught keyboard interrupt. Shutting down...
