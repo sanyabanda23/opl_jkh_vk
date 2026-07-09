@@ -9,6 +9,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+from vkbottle import Bot as VKBot
 from vkbottle.framework.labeler import BotLabeler
 from vkbottle.bot import Message
 from vkbottle.dispatch.rules.base import ABCRule
@@ -19,12 +20,10 @@ import utils, text, kb
 from config import settings
 from state import Info_pay_mon
 
-# Создаём Labeler (аналог Dispatcher в aiogram)
-router = BotLabeler()
-# это хранилище для временного сохранения данных в рамках диалога
+vk_bot = VKBot(token=settings.BOT_TOKEN_VK)
+
 ctx = CtxStorage()
 driver_jkh = utils.SBOL()
-from main import vk_bot
 # Создаём загрузчик документов
 doc_uploader = DocMessagesUploader(vk_bot.api)
 
@@ -55,8 +54,9 @@ class PayloadABCRule(ABCRule[Message]):
 
     def __init__(self, cmd: str):
         self.cmd = cmd
+
     
-@router.message(MyRule(), text="/start")
+@vk_bot.on.message(MyRule(), text="/start")
 async def start_handler(message: Message):
     try:
         await vk_bot.state_dispenser.delete(message.peer_id)
@@ -66,7 +66,7 @@ async def start_handler(message: Message):
     await message.answer(text.hello_text, keyboard=kb.start_kb())
 
 ### Реакция на кнопку гравное меню
-@router.message(MyRule(), PayloadABCRule('main_menu'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('main_menu'))
 async def main_menu(message: Message):
     try:
         await vk_bot.state_dispenser.delete(message.peer_id)
@@ -76,7 +76,7 @@ async def main_menu(message: Message):
     logger.info("Вызвано главное меню")
     await message.answer('Главное меню', keyboard=kb.start_kb())
 
-@router.message(MyRule(), PayloadABCRule('main_menu_info'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('main_menu_info'))
 async def main_menu_info(message: Message):
     try:
         await vk_bot.state_dispenser.delete(message.peer_id)
@@ -86,7 +86,7 @@ async def main_menu_info(message: Message):
     await message.answer('Главное меню', keyboard=kb.start_kb())
 
 ### Формирование отчетов
-@router.message(MyRule(), PayloadABCRule('info_pay_rek'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('info_pay_rek'))
 async def vibor_info(message: Message):
     logger.debug(f"Вызвано меню отчетов. cmd={message.payload}")
     try:
@@ -95,7 +95,7 @@ async def vibor_info(message: Message):
         pass  # Состояние не найдено — игнорируем
     await message.answer(text.vibor_info, keyboard=kb.vibor_info_rek_kb())
 
-@router.message(MyRule(), PayloadABCRule('info_rek'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('info_rek'))
 async def vibor_info_rek(message: Message):
     logger.debug(f"Информация о реквизитах. cmd={message.payload}")
     try:
@@ -104,7 +104,7 @@ async def vibor_info_rek(message: Message):
         pass  # Состояние не найдено — игнорируем
     await message.answer('Выбери тип отчета о реквизитах', keyboard=kb.vibor_info_post_lsch_kb())
 
-@router.message(MyRule(), PayloadABCRule('info_pay'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('info_pay'))
 async def vibor_info_pay(message: Message):
     logger.debug(f"Информация о платежах. cmd={message.payload}")
     try:
@@ -113,7 +113,7 @@ async def vibor_info_pay(message: Message):
         pass  # Состояние не найдено — игнорируем
     await message.answer('Выбери тип отчета о платежах', keyboard=kb.vibor_info_pay())
 
-@router.message(MyRule(), PayloadABCRule('info_pos'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('info_pos'))
 async def vibor_rek_pos_info(message: Message):
     logger.debug(f"Реквизиты поставщиков. cmd={message.payload}")
     try:
@@ -121,19 +121,15 @@ async def vibor_rek_pos_info(message: Message):
     except KeyError:
         pass  # Состояние не найдено — игнорируем
     await message.answer('Отчет формируется')
-    if utils.select_from_postav():
-        # Загружаем документ
-        upload_start = time.time()
-        doc = await doc_uploader.upload(
+    utils.select_from_postav()
+    doc = await doc_uploader.upload(
             file_source="postavshiki.pdf",
             peer_id=message.peer_id,
             )
-        upload_end = time.time()
-        logger.debug(f"Загрузка файла: {upload_end - upload_start:.2f} сек")
     attachment = f"doc{doc.owner_id}_{doc.id}"
     await message.answer('Отправляю вам отчет в формате PDF', attachment=attachment)
 
-@router.message(MyRule(), PayloadABCRule('info_lsch'))
+@vk_bot.on.message(MyRule(), PayloadABCRule('info_lsch'))
 async def vibor_rek_lsch_info(message: Message):
     logger.debug(f"Лицевые счета. cmd={message.payload}")
     try:
@@ -152,7 +148,7 @@ async def vibor_rek_lsch_info(message: Message):
     logger.debug(f"Загрузка файла: {upload_end - upload_start:.2f} сек")
     await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
 
-@router.message(MyRule(), payload={"cmd": "info_pay_mon"})
+@vk_bot.on.message(payload={"cmd": "info_pay_mon"})
 async def info_pay_mon(message: Message):
     logger.debug(f"Лицевые счета. cmd={message.payload}")
     try:
@@ -162,7 +158,7 @@ async def info_pay_mon(message: Message):
     await message.answer(text.info_pay_mon)
     await vk_bot.state_dispenser.set(message.peer_id, Info_pay_mon.MON)
 
-@router.message(MyRule(), state=Info_pay_mon.MON)
+@vk_bot.on.message(state=Info_pay_mon.MON)
 async def info_pay_mon_1(message: Message):
     data_mon = message.text
     await message.answer('Отчет формируется')
@@ -171,6 +167,8 @@ async def info_pay_mon_1(message: Message):
             file_source="month_pay.pdf",
             peer_id=message.peer_id,
         )
+    attachment = f"doc{doc.owner_id}_{doc.id}"
     await message.answer(f'Cумма платежей составила - {summ}')
-    await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
+    await message.answer('Отправляю вам отчет в формате PDF', attachment=attachment)
     await vk_bot.state_dispenser.delete(message.peer_id)
+
