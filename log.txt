@@ -2530,3 +2530,86 @@ Traceback (most recent call last):
 
 vkbottle.exception_factory.base_exceptions.VKAPIError_9: Flood control
 2026-07-09 at 21:32:31 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-10 at 18:07:00 | INFO | Loop will be run forever
+2026-07-10 at 18:07:00 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-10 at 18:09:45 | ERROR | 'str' object has no attribute 'owner_id'
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 26, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f13ca09e320>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 16, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f13c6f920e0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f13c9fc24a0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f13c47be050>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f13b53e5b40>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f13c9fc24a0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f13c9877eb0>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f13b53e5b40>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f13c9877e20>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f13c9685990>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f13c97d5360>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f13b53e7fd0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f13b53e5cc0>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '98b527177817aad6b51510ce451861f45021ae4d', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f13c47fe320>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=630, date=1783696184, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f13c47bfe20>
+                             └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_pos_info at 0x7f13b53e2170>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f13c47bfc70>
+                 │    │       └ MessageMin(conversation_message_id=630, date=1783696184, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_pos_info at 0x7f13b53e2170>
+                 └ <FromFuncHandler vibor_rek_pos_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 130, in vibor_rek_pos_info
+    attachment = f"doc{doc.owner_id}_{doc.id}"
+
+AttributeError: 'str' object has no attribute 'owner_id'
+2026-07-10 at 18:13:03 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-10 at 18:13:35 | INFO | Loop will be run forever
+2026-07-10 at 18:13:35 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-10 at 18:20:17 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-10 at 18:20:22 | INFO | Loop will be run forever
+2026-07-10 at 18:20:22 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-10 at 18:28:40 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-10 at 18:28:45 | INFO | Loop will be run forever
+2026-07-10 at 18:28:45 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-10 at 18:29:38 | INFO | Caught keyboard interrupt. Shutting down...

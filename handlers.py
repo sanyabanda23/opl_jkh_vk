@@ -18,7 +18,7 @@ from vkbottle import CtxStorage, DocMessagesUploader
 import mysql.connector as con
 import utils, text, kb
 from config import settings
-from state import Info_pay_mon
+from state import Info_pay_mon, Info_pay_year
 
 vk_bot = VKBot(token=settings.BOT_TOKEN_VK)
 
@@ -85,6 +85,7 @@ async def main_menu_info(message: Message):
     logger.info("Вызвано главное меню")
     await message.answer('Главное меню', keyboard=kb.start_kb())
 
+
 ### Формирование отчетов
 @vk_bot.on.message(MyRule(), PayloadABCRule('info_pay_rek'))
 async def vibor_info(message: Message):
@@ -126,8 +127,7 @@ async def vibor_rek_pos_info(message: Message):
             file_source="postavshiki.pdf",
             peer_id=message.peer_id,
             )
-    attachment = f"doc{doc.owner_id}_{doc.id}"
-    await message.answer('Отправляю вам отчет в формате PDF', attachment=attachment)
+    await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
 
 @vk_bot.on.message(MyRule(), PayloadABCRule('info_lsch'))
 async def vibor_rek_lsch_info(message: Message):
@@ -167,8 +167,106 @@ async def info_pay_mon_1(message: Message):
             file_source="month_pay.pdf",
             peer_id=message.peer_id,
         )
-    attachment = f"doc{doc.owner_id}_{doc.id}"
     await message.answer(f'Cумма платежей составила - {summ}')
-    await message.answer('Отправляю вам отчет в формате PDF', attachment=attachment)
+    await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
     await vk_bot.state_dispenser.delete(message.peer_id)
 
+@vk_bot.on.message(MyRule(), PayloadABCRule('info_pay_kf_kp'))
+async def info_pay_year(message: Message):
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    await message.answer('Выбери квартиру', reply_markup=kb.vibor_kv_info_kb())
+    await vk_bot.state_dispenser.set(Info_pay_year.KF)
+
+@vk_bot.on.message(payload={"cmd": "info_pay_mon"})
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'dm', Info_pay_year.kf)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kf='dm')
+    await call.message.edit_text('Выбери поставщика', reply_markup=kb_jkh.vibor_post_info_kb())
+    await state.set_state(Info_pay_year.KP)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'pt', Info_pay_year.kf)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kf='pt')
+    await call.message.edit_text('Выбери поставщика', reply_markup=kb_jkh.vibor_post_info_kb())
+    await state.set_state(Info_pay_year.kp)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'fr', Info_pay_year.kf)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kf='fr')
+    await call.message.edit_text('Выбери поставщика', reply_markup=kb_jkh.vibor_post_info_kb())
+    await state.set_state(Info_pay_year.kp)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'in', Info_pay_year.kf)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kf='in')
+    await call.message.edit_text('Выбери поставщика', reply_markup=kb_jkh.vibor_post_info_kb())
+    await state.set_state(Info_pay_year.kp)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'gb', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='gb')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'gz', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='gz')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'kr', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='kr')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'lt', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='lt')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'wm', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='wm')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'ykd', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='ykd')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'ykf', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='ykf')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'yki', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='yki')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.callback_query(F.from_user.id == settings.tg_user_id, F.data == 'wt', Info_pay_year.kp)
+async def info_pay_year(call: CallbackQuery, state: FSMContext):
+    await state.update_data(kp='wt')
+    await call.message.answer(text_jkh.info_pay_year)
+    await state.set_state(Info_pay_year.year)
+
+@router_jkh.message(F.from_user.id == settings.tg_user_id, F.text, Info_pay_year.year)
+async def info_pay_year(msg: Message, state: FSMContext):        
+    await state.update_data(year=msg.text)
+    data = await state.get_data()
+    await msg.answer('Отчет формируется')
+    utils_jkh.select_from_pay_year(kf=data.get('kf'), kp=data.get('kp'), year=data.get('year'))
+    doc = FSInputFile('year_pay.pdf')
+    await msg.answer_photo(photo=doc)
+    await b.send_document(msg.chat.id, document=doc)  
+    await msg.answer('Отправляю вам отчет в формате PDF')
+    await state.clear()
