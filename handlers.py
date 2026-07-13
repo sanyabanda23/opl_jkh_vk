@@ -18,7 +18,7 @@ from vkbottle import CtxStorage, DocMessagesUploader
 import mysql.connector as con
 import utils, text, kb
 from config import settings
-from state import Info_pay_mon, Info_pay_year
+from state import Info_pay_mon, Info_pay_year, Vhod
 
 vk_bot = VKBot(token=settings.BOT_TOKEN_VK)
 
@@ -55,7 +55,7 @@ class PayloadABCRule(ABCRule[Message]):
     def __init__(self, cmd: str):
         self.cmd = cmd
 
-@vk_bot.on.message(text="/start")
+@vk_bot.on.message(MyRule(), text="/start")
 async def start_handler(message: Message):
     try:
         await vk_bot.state_dispenser.delete(message.peer_id)
@@ -225,3 +225,32 @@ async def info_pay_year(message: Message):
         )
     await message.answer('Отправляю вам отчет в формате PDF', attachment=doc)
     await vk_bot.state_dispenser.delete(message.peer_id)
+
+### Вход в Сбербанк оннлайнн
+@vk_bot.on.message(MyRule(), PayloadABCRule('start_sbol'))
+async def start_vhod_sbol(message: Message):
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    await message.answer('Начата процедура входа')
+    if driver_jkh.initialize_driver():
+        driver_jkh.open_website(settings.URL_vhod)
+        await message.answer('Введите пароль из СМС-сообщения')
+        if driver_jkh.vhod_tel_parol():
+            await vk_bot.state_dispenser.set(message.peer_id, Vhod.SMS_PASWORD)
+        else:
+            driver_jkh.close_driver()
+            await message.answer(text.falling_vhod, keyboard=kb.start_kb())
+
+@vk_bot.on.message(MyRule(), state=Vhod.SMS_PASWORD)
+async def input_sms(message: Message):
+    pasword = message.text
+    await message.answer('Код из СМС принят')
+    if driver_jkh.vvod_is_sms(pasword):
+        await message.answer(text.success_vhod, keyboard=kb.vibor_kv_kb())
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    else:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+        driver_jkh.close_driver()
+        await message.answer(text.falling_vhod, keyboard=kb.start_kb())

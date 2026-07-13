@@ -10,3 +10,6 @@ class Info_pay_year(BaseStateGroup):
     YEAR = 'year'
     KF = 'kf'
     KP = 'kp'
+
+class Vhod(BaseStateGroup):
+    SMS_PASWORD = 'sms_pasword'

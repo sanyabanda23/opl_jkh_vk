@@ -538,11 +538,11 @@ class SBOL:
             return False
 
     def vhod_tel_parol(self) -> bool:
-        button_vhod_tel_parol = find_element(self.driver, By.XPATH, '//*[@id="layout-content"]/div[2]/form/div[1]/div[1]/input')
+        button_vhod_tel_parol = find_element(self.driver, By.XPATH, '//*[@id="layout-content"]/div/div[1]/div[2]/button[2]')
         button_cookie = find_element(self.driver, By.XPATH, '//*[@id="app"]/div/div[1]/div/div[2]/button')
         click_element(button_cookie)
         if click_element(button_vhod_tel_parol):
-            success_locator = (By.XPATH, '//*[@id="layout-content"]/div[2]/form/div[2]/div[1]/input') 
+            success_locator = (By.XPATH, '//*[@id="layout-content"]/div[2]/form/div[1]/div[1]/input')
             is_logged_in = check_login_success(self.driver, success_locator)
             if is_logged_in:
                 print("Перешел на страницу")

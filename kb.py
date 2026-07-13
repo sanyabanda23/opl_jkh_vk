@@ -88,3 +88,18 @@ def vibor_post_info_kb():
         .add(Text("◀️ Главное меню", payload={"cmd": "main_menu_info"}), KeyboardButtonColor.PRIMARY)
     )
     return keyboard.get_json()
+
+def vibor_kv_kb():
+    keyboard = (
+        Keyboard(one_time=False, inline=True)
+        .add(Text("1-й Крепостной 24", payload={"cmd": "dm"}))
+        .row()
+        .add(Text("Петровская 41", payload={"cmd": "pt"}))
+        .row()
+        .add(Text("Фрунзе 79/5", payload={"cmd": "fr"}))
+        .row()
+        .add(Text("Инструментальная 19/3", payload={"cmd": "in"}))
+        .row()
+        .add(Text("◀️ Главное меню", payload={"cmd": "main_menu"}), KeyboardButtonColor.PRIMARY)
+    )
+    return keyboard.get_json()

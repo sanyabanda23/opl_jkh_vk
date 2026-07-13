@@ -3044,3 +3044,150 @@ vkbottle.exception_factory.base_exceptions.VKAPIError_911: Keyboard format is in
 2026-07-13 at 14:46:09 | INFO | Caught keyboard interrupt. Shutting down...
 2026-07-13 at 14:46:33 | INFO | Loop will be run forever
 2026-07-13 at 14:46:33 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 15:08:04 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 15:08:16 | INFO | Loop will be run forever
+2026-07-13 at 15:08:16 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 15:08:34 | ERROR | local variable 'print' referenced before assignment
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/utils.py", line 102, in find_element
+    element = driver.find_element(by, value)
+              │      │            │   └ '//*[@id="layout-content"]/div[2]/form/div[1]/div[1]/input'
+              │      │            └ 'xpath'
+              │      └ <function WebDriver.find_element at 0x7f0c4b412950>
+              └ <selenium.webdriver.chrome.webdriver.WebDriver (session="d35a597ebd1f1ab9d9d54abb9808ef26")>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 899, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           │    │       │       │                       │            └ '//*[@id="layout-content"]/div[2]/form/div[1]/div[1]/input'
+           │    │       │       │                       └ 'xpath'
+           │    │       │       └ 'findElement'
+           │    │       └ <class 'selenium.webdriver.remote.command.Command'>
+           │    └ <function WebDriver.execute at 0x7f0c4b411750>
+           └ <selenium.webdriver.chrome.webdriver.WebDriver (session="d35a597ebd1f1ab9d9d54abb9808ef26")>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 492, in execute
+    self.error_handler.check_response(response)
+    │    │             │              └ {'status': 404, 'value': '{"value":{"error":"no such element","message":"no such element: Unable to locate element: {\\"metho...
+    │    │             └ <function ErrorHandler.check_response at 0x7f0c4b446ef0>
+    │    └ <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f0c3a819180>
+    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="d35a597ebd1f1ab9d9d54abb9808ef26")>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+          │               │        │       └ ['#0 0x5575448734ca <unknown>', '#1 0x5575442c1e4b <unknown>', '#2 0x557544314814 <unknown>', '#3 0x557544314a51 <unknown>', ...
+          │               │        └ None
+          │               └ 'no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="layout-content"]/div[2]/form/div[1]/div[1]...
+          └ <class 'selenium.common.exceptions.NoSuchElementException'>
+
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="layout-content"]/div[2]/form/div[1]/div[1]/input"}
+  (Session info: chrome=142.0.7444.175); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+#0 0x5575448734ca <unknown>
+#1 0x5575442c1e4b <unknown>
+#2 0x557544314814 <unknown>
+#3 0x557544314a51 <unknown>
+#4 0x557544363a44 <unknown>
+#5 0x557544360df7 <unknown>
+#6 0x557544306c2a <unknown>
+#7 0x557544307931 <unknown>
+#8 0x557544839cf9 <unknown>
+#9 0x55754483ccdc <unknown>
+#10 0x557544822f79 <unknown>
+#11 0x55754483d8b5 <unknown>
+#12 0x55754480a9c3 <unknown>
+#13 0x557544860228 <unknown>
+#14 0x557544860403 <unknown>
+#15 0x557544872463 <unknown>
+#16 0x7f3b9c274ac3 <unknown>
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 26, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f0c4f512290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 16, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f0c4ba6e0e0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4f4379d0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f0c49996050>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0c3a81bfd0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4f4379d0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f0c4ecf3eb0>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0c3a81bfd0>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f0c4ecf3e20>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f0c4eafd990>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f0c4ec51360>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f0c3a81af50>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f0c3a81ae60>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '98eeb787a7ba48bf929700ac3185139fd4f2ef06', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f0c499d6320>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<MyRule>, <VBMLRule>)>, <FromFuncHandler main_m...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=799, date=1783944503, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f0c49997e20>
+                             └ <FromFuncHandler start_vhod_sbol blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function start_vhod_sbol at 0x7f0c3a80a950>
+                 │    │       │        │            └ <FromFuncHandler start_vhod_sbol blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f0c49997c70>
+                 │    │       └ MessageMin(conversation_message_id=799, date=1783944503, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function start_vhod_sbol at 0x7f0c3a80a950>
+                 └ <FromFuncHandler start_vhod_sbol blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 240, in start_vhod_sbol
+    if driver_jkh.vhod_tel_parol():
+       │          └ <function SBOL.vhod_tel_parol at 0x7f0c3a808820>
+       └ <utils.SBOL object at 0x7f0c3a81a320>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/utils.py", line 541, in vhod_tel_parol
+    button_vhod_tel_parol = find_element(self.driver, By.XPATH, '//*[@id="layout-content"]/div[2]/form/div[1]/div[1]/input')
+                            │            │    │       │  └ 'xpath'
+                            │            │    │       └ <class 'selenium.webdriver.common.by.By'>
+                            │            │    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="d35a597ebd1f1ab9d9d54abb9808ef26")>
+                            │            └ <utils.SBOL object at 0x7f0c3a81a320>
+                            └ <function find_element at 0x7f0c3a7dfc70>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/utils.py", line 106, in find_element
+    print(f"Ошибка при поиске элемента {by}={value}: {e}")
+
+UnboundLocalError: local variable 'print' referenced before assignment
+2026-07-13 at 15:20:57 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 15:21:03 | INFO | Loop will be run forever
+2026-07-13 at 15:21:03 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 15:22:08 | INFO | Caught keyboard interrupt. Shutting down...
