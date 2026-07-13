@@ -2613,3 +2613,434 @@ AttributeError: 'str' object has no attribute 'owner_id'
 2026-07-10 at 18:28:45 | INFO | Loop will be run forever
 2026-07-10 at 18:28:45 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
 2026-07-10 at 18:29:38 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 18:42:24 | INFO | Loop will be run forever
+2026-07-12 at 18:42:24 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 18:47:53 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 18:48:27 | INFO | Loop will be run forever
+2026-07-12 at 18:48:27 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 18:53:19 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 18:53:31 | INFO | Loop will be run forever
+2026-07-12 at 18:53:31 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 18:55:49 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 18:55:55 | INFO | Loop will be run forever
+2026-07-12 at 18:55:55 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:13:37 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:13:47 | INFO | Loop will be run forever
+2026-07-12 at 19:13:47 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:22:28 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:22:46 | INFO | Loop will be run forever
+2026-07-12 at 19:22:46 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:24:22 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:24:30 | INFO | Loop will be run forever
+2026-07-12 at 19:24:30 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:26:54 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:26:59 | INFO | Loop will be run forever
+2026-07-12 at 19:26:59 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:31:09 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:31:15 | INFO | Loop will be run forever
+2026-07-12 at 19:31:15 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:33:11 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:33:23 | INFO | Loop will be run forever
+2026-07-12 at 19:33:23 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:34:08 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:34:13 | INFO | Loop will be run forever
+2026-07-12 at 19:34:13 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:36:38 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:36:44 | INFO | Loop will be run forever
+2026-07-12 at 19:36:44 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:42:16 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-12 at 19:42:23 | INFO | Loop will be run forever
+2026-07-12 at 19:42:23 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-12 at 19:53:00 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:23:51 | INFO | Loop will be run forever
+2026-07-13 at 14:23:51 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:25:16 | ERROR | Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 26, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f0c48262290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 16, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f0c44e21fc0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4818a4a0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f0c429bdf30>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0c334cdf00>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4818a4a0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f0c47a8fd90>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0c334cdf00>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f0c47a8fd00>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f0c4789d870>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f0c479ed240>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f0c334ce1a0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f0c334ce290>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '7fb040c4fc26c798b2b2bd6d1d8c9577a8dc3f7e', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f0c429fa200>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<VBMLRule>,)>, <FromFuncHandler main_menu block...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=696, date=1783941916, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f0c429bfd00>
+                             └ <FromFuncHandler vibor_rek_lsch_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function vibor_rek_lsch_info at 0x7f0c332f6200>
+                 │    │       │        │            └ <FromFuncHandler vibor_rek_lsch_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f0c429bfb50>
+                 │    │       └ MessageMin(conversation_message_id=696, date=1783941916, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function vibor_rek_lsch_info at 0x7f0c332f6200>
+                 └ <FromFuncHandler vibor_rek_lsch_info blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 150, in vibor_rek_lsch_info
+    doc = await doc_uploader.upload(
+                │            └ <function DocMessagesUploader.upload at 0x7f0c44c7aef0>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 72, in upload
+    return await super().upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 22, in upload
+    doc = await self.raw_upload(file_source, group_id, **params)
+                │    │          │            │           └ {'peer_id': 2000000001}
+                │    │          │            └ None
+                │    │          └ 'l_sch.pdf'
+                │    └ <function DocMessagesUploader.raw_upload at 0x7f0c44c7af80>
+                └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 86, in raw_upload
+    return await super().raw_upload(
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/doc.py", line 45, in raw_upload
+    uploader = await self.upload_files(server["upload_url"], {"file": file})
+                     │    │            │                              └ <_io.BytesIO object at 0x7f0c4550c810>
+                     │    │            └ {'upload_url': 'https://pu.vk.com/c903718/upload.php?act=add_doc_new&mid=-236899277&aid=-1&gid=0&type=0&peer_id=2000000001&rh...
+                     │    └ <function BaseUploader.upload_files at 0x7f0c44c7a710>
+                     └ <Uploader DocMessagesUploader with api <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/uploader/base.py", line 48, in upload_files
+    return json.loads(raw_response)
+           │    │     └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │    └ <function loads at 0x7f0c478eab90>
+           └ <module 'json' from '/usr/lib/python3.10/json/__init__.py'>
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           │                │      └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+           │                └ <function JSONDecoder.decode at 0x7f0c478ea4d0>
+           └ <json.decoder.JSONDecoder object at 0x7f0c481a2ec0>
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               │    │          │      │  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    │          │      └ <built-in method match of re.Pattern object at 0x7f0c48153370>
+               │    │          └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+               │    └ <function JSONDecoder.raw_decode at 0x7f0c478ea560>
+               └ <json.decoder.JSONDecoder object at 0x7f0c481a2ec0>
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+          │                                  └ '<html>\r\n<head><title>405 Not Allowed</title></head>\r\n<body>\r\n<center><h1>405 Not Allowed</h1></center>\r\n<hr><center>...
+          └ <class 'json.decoder.JSONDecodeError'>
+
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-07-13 at 14:25:58 | ERROR | BuiltinStateDispenser.set() missing 1 required positional argument: 'state'
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 26, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f0c48262290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 16, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f0c44e21fc0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4818a4a0>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f0c429bdf30>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0c334cdf00>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4818a4a0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f0c47a8fd90>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0c334cdf00>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f0c47a8fd00>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f0c4789d870>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f0c479ed240>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f0c334ce1a0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f0c334ce290>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '11a91606f36f5a2b561cab93660d0d0269f99cf5', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f0c429fa200>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<VBMLRule>,)>, <FromFuncHandler main_menu block...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=708, date=1783941958, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f0c429bfd00>
+                             └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function info_pay_year at 0x7f0c332f63b0>
+                 │    │       │        │            └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f0c429bfb50>
+                 │    │       └ MessageMin(conversation_message_id=708, date=1783941958, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function info_pay_year at 0x7f0c332f63b0>
+                 └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <PayloadABCRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 188, in info_pay_year
+    await vk_bot.state_dispenser.set(Info_pay_year.KF)
+          │      │               │   │             └ <Info_pay_year.KF: 'kf'>
+          │      │               │   └ <enum 'Info_pay_year'>
+          │      │               └ <function BuiltinStateDispenser.set at 0x7f0c429bf5b0>
+          │      └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f0c334ce1a0>
+          └ <vkbottle.framework.bot.bot.Bot object at 0x7f0c4818a4a0>
+
+TypeError: BuiltinStateDispenser.set() missing 1 required positional argument: 'state'
+2026-07-13 at 14:27:35 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:27:41 | INFO | Loop will be run forever
+2026-07-13 at 14:27:41 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:29:22 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:29:27 | INFO | Loop will be run forever
+2026-07-13 at 14:29:27 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:32:24 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:32:29 | INFO | Loop will be run forever
+2026-07-13 at 14:32:29 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:34:08 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:34:23 | INFO | Loop will be run forever
+2026-07-13 at 14:34:23 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:34:39 | ERROR | string indices must be integers
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 26, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f591119e290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 16, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f590d74a050>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f59110c2470>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f590b62dfc0>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f58fc395e40>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f59110c2470>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f59109c7e20>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f58fc395e40>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f59109c7d90>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f59107d5900>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f59109252d0>
+    └ <Handle <TaskStepMethWrapper object at 0x7f58fc394a90>()>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0x7f58fc394a90>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskStepMethWrapper object at 0x7f58fc394a90>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskStepMethWrapper object at 0x7f58fc394a90>()>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f58fc3960e0>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f58fc3961d0>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '9e9dfa0d47ff5ffeef87d2dd7db18e23929a0258', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f590b66e290>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<VBMLRule>,)>, <FromFuncHandler main_menu block...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=751, date=1783942479, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f590b62fd90>
+                             └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <StateRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function info_pay_year at 0x7f58fc3b64d0>
+                 │    │       │        │            └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <StateRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f590b62fbe0>
+                 │    │       └ MessageMin(conversation_message_id=751, date=1783942479, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function info_pay_year at 0x7f58fc3b64d0>
+                 └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <StateRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 194, in info_pay_year
+    cmd = payload["cmd"]
+          └ '{"cmd":"kf_dm"}'
+
+TypeError: string indices must be integers
+2026-07-13 at 14:38:24 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:38:29 | INFO | Loop will be run forever
+2026-07-13 at 14:38:29 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:38:48 | ERROR | Keyboard format is invalid: buttons contain too much rows
+Traceback (most recent call last):
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 26, in <module>
+    run_bot()
+    └ <function run_bot at 0x7f0ac2baa290>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/main.py", line 16, in run_bot
+    vk_bot.run_forever()
+    │      └ <function BaseFramework.run_forever at 0x7f0abfac6050>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0ac2ace470>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/framework/base.py", line 34, in run_forever
+    self.loop_wrapper.run()
+    │    │            └ <function LoopWrapper.run at 0x7f0abd045fc0>
+    │    └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0aaddf9ea0>
+    └ <vkbottle.framework.bot.bot.Bot object at 0x7f0ac2ace470>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/loop_wrapper.py", line 85, in run
+    tasks_results, _ = self.loop.run_until_complete(
+    │                  │    │    └ <function BaseEventLoop.run_until_complete at 0x7f0ac23cbe20>
+    │                  │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+    │                  └ <vkbottle.tools.loop_wrapper.LoopWrapper object at 0x7f0aaddf9ea0>
+    └ {<Task finished name='Task-1' coro=<BaseFramework.run_polling() done, defined at /home/sanyabanda23/app/opl_jkh_vk/.venv/lib/...
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f0ac23cbd90>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f0ac23d5900>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f0ac23292d0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/base.py", line 24, in route
+    await view.handle_event(event, ctx_api, self.state_dispenser)
+          │    │            │      │        │    └ <vkbottle.dispatch.dispenser.builtin.BuiltinStateDispenser object at 0x7f0aaddfa140>
+          │    │            │      │        └ <vkbottle.dispatch.base.Router object at 0x7f0aaddfa230>
+          │    │            │      └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+          │    │            └ {'group_id': 236899277, 'type': 'message_new', 'event_id': '60c7183421a84e99900845d64944aa1f1260099d', 'v': '5.199', 'object'...
+          │    └ <function ABCMessageView.handle_event at 0x7f0abd082290>
+          └ <BotMessageView handlers=[<FromFuncHandler start_handler blocking=True rules=(<VBMLRule>,)>, <FromFuncHandler main_menu block...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/views/abc/message.py", line 72, in handle_event
+    handler_response = await handler.handle(message, **context_variables)
+                             │       │      │          └ {}
+                             │       │      └ MessageMin(conversation_message_id=760, date=1783942728, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                             │       └ <function FromFuncHandler.handle at 0x7f0abd047d90>
+                             └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <StateRule>)>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/dispatch/handlers/from_func_handler.py", line 29, in handle
+    return await self.handler(event, **magic_bundle(self.handler, context))
+                 │    │       │        │            │    │        └ {}
+                 │    │       │        │            │    └ <function info_pay_year at 0x7f0aade1a4d0>
+                 │    │       │        │            └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <StateRule>)>
+                 │    │       │        └ <function magic_bundle at 0x7f0abd047be0>
+                 │    │       └ MessageMin(conversation_message_id=760, date=1783942728, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                 │    └ <function info_pay_year at 0x7f0aade1a4d0>
+                 └ <FromFuncHandler info_pay_year blocking=True rules=(<MyRule>, <StateRule>)>
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/handlers.py", line 199, in info_pay_year
+    await message.answer('Выбери поставщика', keyboard=kb.vibor_post_info_kb())
+          │       │                                    │  └ <function vibor_post_info_kb at 0x7f0aade19cf0>
+          │       │                                    └ <module 'kb' from '/home/sanyabanda23/app/opl_jkh_vk/kb.py'>
+          │       └ <function BaseMessageMin.answer at 0x7f0abd083910>
+          └ MessageMin(conversation_message_id=760, date=1783942728, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/tools/mini_types/base/message.py", line 235, in answer
+    response = (await self.ctx_api.messages.send(peer_ids=[self.peer_id], **data))[0]  # type: ignore
+                      │    │                               │    │           └ {'message': 'Выбери поставщика', 'random_id': 0, 'keyboard': '{"one_time": false, "inline": true, "buttons": [[{"action": {"l...
+                      │    │                               │    └ 2000000001
+                      │    │                               └ MessageMin(conversation_message_id=760, date=1783942728, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+                      │    └ <property object at 0x7f0abd053a60>
+                      └ MessageMin(conversation_message_id=760, date=1783942728, from_id=9028754, id=0, out=False, peer_id=2000000001, text='[club236...
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle_types/methods/messages.py", line 208, in send
+    response = await self.api.request("messages.send", params)
+                     │    │   │                        └ {'random_id': 0, 'peer_ids': '2000000001', 'message': 'Выбери поставщика', 'keyboard': '{"one_time": false, "inline": true, "...
+                     │    │   └ <function API.request at 0x7f0abfac5120>
+                     │    └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+                     └ <vkbottle_types.methods.messages.MessagesCategory object at 0x7f0aaddfbfa0>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 78, in request
+    return await self.validate_response(method, data, response)  # type: ignore
+                 │    │                 │       │     └ '{"error":{"error_code":911,"error_msg":"Keyboard format is invalid: buttons contain too much rows","request_params":[{"key":...
+                 │    │                 │       └ {'random_id': 0, 'peer_ids': '2000000001', 'message': 'Выбери поставщика', 'keyboard': '{"one_time": false, "inline": true, "...
+                 │    │                 └ 'messages.send'
+                 │    └ <function API.validate_response at 0x7f0abfac5240>
+                 └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/api.py", line 103, in validate_response
+    response = await validator.validate(method, data, response, self)  # type: ignore
+                     │         │        │       │     │         └ <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+                     │         │        │       │     └ {'error': {'error_msg': 'Keyboard format is invalid: buttons contain too much rows', 'request_params': [{'key': 'v', 'value':...
+                     │         │        │       └ {'random_id': 0, 'peer_ids': '2000000001', 'message': 'Выбери поставщика', 'keyboard': '{"one_time": false, "inline": true, "...
+                     │         │        └ 'messages.send'
+                     │         └ <function VKAPIErrorResponseValidator.validate at 0x7f0abfac4790>
+                     └ <vkbottle.api.response_validator.vk_api_error_validator.VKAPIErrorResponseValidator object at 0x7f0abfb57640>
+  File "/home/sanyabanda23/app/opl_jkh_vk/.venv/lib/python3.10/site-packages/vkbottle/api/response_validator/vk_api_error_validator.py", line 48, in validate
+    raise VKAPIError[code](**error)
+          │          │       └ {'error_msg': 'Keyboard format is invalid: buttons contain too much rows', 'request_params': [{'key': 'v', 'value': '5.199'},...
+          │          └ 911
+          └ <class 'vkbottle.exception_factory.base_exceptions.VKAPIError'>
+
+vkbottle.exception_factory.base_exceptions.VKAPIError_911: Keyboard format is invalid: buttons contain too much rows
+2026-07-13 at 14:43:40 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:43:45 | INFO | Loop will be run forever
+2026-07-13 at 14:43:45 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-13 at 14:46:09 | INFO | Caught keyboard interrupt. Shutting down...
+2026-07-13 at 14:46:33 | INFO | Loop will be run forever
+2026-07-13 at 14:46:33 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
