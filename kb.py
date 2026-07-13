@@ -14,7 +14,7 @@ def start_kb():
 
 def yes_no_kb():
     keyboard = (
-        Keyboard(one_time=True, inline=False)
+        Keyboard(one_time=False, inline=True)
         .add(Text("Да", payload={"cmd": "yes"}))
         .row()
         .add(Text("Нет", payload={"cmd": "no"}))
@@ -73,7 +73,7 @@ def vibor_post_info_kb():
     keyboard = (
         Keyboard(one_time=False, inline=True)
         .add(Text("📦 ЕРЦ Экотранс", payload={"cmd": "kp_gb"}))
-        .add(Text("🔥Газпром межрегионгаз Ростов-на-Дону", payload={"cmd": "kp_gz"}))
+        .add(Text("🔥Газпром межрегионгаз", payload={"cmd": "kp_gz"}))
         .row()
         .add(Text("🏗 Фонд капиатльного ремонта", payload={"cmd": "kp_kr"}))
         .add(Text("⚡ ТНС энерго Ростов-на-Дону", payload={"cmd": "kp_lt"}))
@@ -101,5 +101,69 @@ def vibor_kv_kb():
         .add(Text("Инструментальная 19/3", payload={"cmd": "in"}))
         .row()
         .add(Text("◀️ Главное меню", payload={"cmd": "main_menu"}), KeyboardButtonColor.PRIMARY)
+    )
+    return keyboard.get_json()
+
+def opl_zkh_dm():
+    keyboard = (
+        Keyboard(one_time=False, inline=True)
+        .add(Text("📦 Услуги по обращению с ТКО", payload={"cmd": "gbdm"}))
+        .row()
+        .add(Text("🔥Услугии газоснабжения", payload={"cmd": "gzdm"}))
+        .row()
+        .add(Text("🏗 Взнос на капитальный ремонт", payload={"cmd": "krdm"}))
+        .row()
+        .add(Text("⚡ Услуги электроснабжения", payload={"cmd": "ltdm"}))
+        .row()
+        .add(Text("💧 Услуги водоснабжения", payload={"cmd": "wtdm"}))
+        .row()
+        .add(Text("📋 Услуги управляющей компании", payload={"cmd": "ykdm"}))
+        .row()
+        .add(Text("◀️ Выбрать другую квартиру", payload={"cmd": "vibor_kv_menu"}), KeyboardButtonColor.PRIMARY)
+    )
+    return keyboard.get_json()
+
+def opl_zkh_pt():
+    keyboard = (
+        Keyboard(one_time=False, inline=True)
+        .add(Text("🏗 Взнос на капитальный ремонт", payload={"cmd": "krpt"}))
+        .row()
+        .add(Text("⚡ Услуги электроснабжения", payload={"cmd": "ltpt"}))
+        .row()
+        .add(Text("💧 Услуги водоснабжения", payload={"cmd": "wtpt"}))
+        .row()
+        .add(Text("◀️ Выбрать другую квартиру", payload={"cmd": "vibor_kv_menu"}), KeyboardButtonColor.PRIMARY)
+    )
+    return keyboard.get_json()
+
+def opl_zkh_fr():
+    keyboard = (
+        Keyboard(one_time=False, inline=True)
+        .add(Text("🔥Услугии газоснабжения", payload={"cmd": "gzfr"}))
+        .row()
+        .add(Text("🏗 Взнос на капитальный ремонт", payload={"cmd": "krfr"}))
+        .row()
+        .add(Text("📋 Услуги управляющей компании", payload={"cmd": "ykfr"}))
+        .row()
+        .add(Text("◀️ Выбрать другую квартиру", payload={"cmd": "vibor_kv_menu"}), KeyboardButtonColor.PRIMARY)
+    )
+    return keyboard.get_json()
+
+def opl_zkh_in():
+    keyboard = (
+        Keyboard(one_time=False, inline=True)
+        .add(Text("📦 Услуги по обращению с ТКО", payload={"cmd": "gbin"}))
+        .row()
+        .add(Text("🔥Услугии газоснабжения", payload={"cmd": "gzdm"}))
+        .row()
+        .add(Text("🏗 Взнос на капитальный ремонт", payload={"cmd": "krin"}))
+        .row()
+        .add(Text("💧 Услуги водоснабжения", payload={"cmd": "wtin"}))
+        .row()
+        .add(Text("📋 Услуги управляющей компании", payload={"cmd": "ykin"}))
+        .row()
+        .add(Text("🌡 Услуги Теплоэнерго", payload={"cmd": "wmin"}))
+        .row()
+        .add(Text("◀️ Выбрать другую квартиру", payload={"cmd": "vibor_kv_menu"}), KeyboardButtonColor.PRIMARY)
     )
     return keyboard.get_json()
