@@ -1493,3 +1493,188 @@ async def opl_yk_in(message: Message):
         await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_in.PREPARATION)
     else:
         await message.answer(text.falling_pay, keyboard=kb.opl_zkh_in())
+
+### Оплата УК Фрунзе
+@vk_bot.on.message(MyRule(), PayloadABCRule('ykfr'))
+async def opl_yk_fr_pok_lt(message: Message):
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    await message.answer('Укажи показания счетчика электроэнергии.')
+    await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_fr.POK_LT)
+
+@vk_bot.on.message(MyRule(), state=Opl_yk_fr.POK_LT)
+async def opl_yk_fr_cwt(message: Message):
+    ctx.set("pok_lt", message.text)
+    await message.answer('Укажи показания счетчика холодной воды.')
+    await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_fr.POK_CWT)
+
+@vk_bot.on.message(MyRule(), state=Opl_yk_fr.POK_CWT)
+async def opl_yk_fr_hwt(message: Message):
+    ctx.set("pok_cwt", message.text)
+    await message.answer('Укажи показания счетчика горячей воды.')
+    await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_fr.POK_HWT)
+
+@vk_bot.on.message(MyRule(), state=Opl_yk_fr.POK_HWT)
+async def opl_yk_fr_preparetion(message: Message):
+    ctx.set("pok_hwt", message.text)
+    connection = con.connect(
+              host=settings.con_sql[0],
+              user=settings.con_sql[1],
+              password=settings.con_sql[2],
+              database=settings.con_sql[3]
+            )
+    cursor = connection.cursor()
+    try:
+        select = ''' SELECT inn, yk, schet, bik, price FROM flat_ls JOIN pokazania 
+        ON flat_ls.kf = pokazania.kf JOIN postavshiki ON pokazania.kp = postavshiki.kp 
+        WHERE flat_ls.kf = 'fr' AND postavshiki.kp = 'ykf' '''
+        cursor.execute(select)
+        data = cursor.fetchall()
+        inn = data[0][0]
+        l_sch = data[0][1]
+        schet = data[0][2]
+        bik = data[0][3]
+        summ = str(data[0][4])
+        connection.commit()
+        print('Данные получены')
+    except Exception as e:
+        # метод rollback, который отменяет все изменения, внесённые в текущей транзакции, возвращая базу данных в предыдущее состояние.
+        connection.rollback()
+        print(f"Произошла ошибка: {str(e)} Транзакция откатывается.")
+
+    finally:
+        # Когда вы завершаете работу с курсором, например, после выполнения всех операций, важно закрыть как курсор, так и соединение
+        cursor.close()
+        connection.close()
+    pok_lt = ctx.get('pok_lt')
+    pok_cwt = ctx.get('pok_cwt')
+    pok_hwt = ctx.get('pok_hwt')
+    await message.answer(text.preparation_pay)
+    input_value = driver_jkh.oplata_yk_fr(inn=inn, l_sch=l_sch, schet=schet, bik=bik, pok_lt=pok_lt, pok_cwt=pok_cwt, pok_hwt=pok_hwt, summ=summ)
+    if input_value[0] is True:
+        await message.answer(text.question_pay_fr.format(input_value[2], input_value[3], input_value[4], input_value[1]), keyboard=kb.yes_no_kb())
+        await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_fr.PREPARATION)
+    else:
+        await message.answer(text.falling_pay, keyboard=kb.opl_zkh_fr())
+
+@vk_bot.on.message(MyRule(), PayloadABCRule('yes'), state=Opl_yk_fr.PREPARATION)
+async def opl_yk_fr_preparetion(message: Message):
+    if driver_jkh.oplata_yk_fr_yes():    
+        rekviz = utils.get_info_from_chek()
+        pokaz_lt = ctx.get('pok_lt')
+        pokaz_cwt = ctx.get('pok_cwt')
+        pokaz_hwt = ctx.get('pok_hwt')
+        if rekviz:
+            num = rekviz[0]
+            date = rekviz[1]
+            usl = rekviz[2]
+            card = rekviz[3]
+            summ = rekviz[4]
+            pokaz = rekviz[5]
+            chek = f'*******Чек по операции*******\n' \
+                   f'Дата и время платежа\n' \
+                   f'{date:>45}\n' \
+                   f'Идентификатор платежа\n' \
+                   f'{num:>45}\n' \
+                   f'Вид услуги\n' \
+                   f'{usl:>45}\n' \
+                   f'Показания счетчика\n' \
+                   f'{pokaz:>45}\n' \
+                   f'<b>Способ оплаты</b>\n' \
+                   f'{card:>30} \n' \
+                   f'<b>Сумма платежа</b>\n' \
+                   f'{summ:>45} руб.'
+            date_time_sql = utils.form_date(date)
+            summ_sq = str(summ).replace(',', '.')
+            summ_sql = str(summ_sq).replace(' ', '')
+            connection = con.connect(
+              host=settings.con_sql[0],
+              user=settings.con_sql[1],
+              password=settings.con_sql[2],
+              database=settings.con_sql[3]
+            )
+            cursor = connection.cursor()
+            try:
+                new_pay = (num, date_time_sql, usl, card, summ_sql, 'fr', 'ykf', pokaz)
+                request_to_insert_data = ''' INSERT INTO pay (num, date, usl, card, summ, kf, kp, pokaz) VALUES (%s, %s, %s, %s, %s, %s, %s, %s); '''
+                cursor.execute(request_to_insert_data, new_pay)
+
+                new_pokaz_lt = (pokaz_lt, 'fr', 'lt')
+                request_to_update_pokaz_lt = "UPDATE pokazania SET pokaz = %s WHERE kf = %s AND kp = %s"
+                cursor.execute(request_to_update_pokaz_lt, new_pokaz_lt)
+
+                new_pokaz_cwt = (pokaz_cwt, 'fr', 'cwt')
+                request_to_update_pokaz_cwt = "UPDATE pokazania SET pokaz = %s WHERE kf = %s AND tip_wt = %s"
+                cursor.execute(request_to_update_pokaz_cwt, new_pokaz_cwt)
+
+                new_pokaz_hwt = (pokaz_hwt, 'fr', 'hwt')
+                request_to_update_pokaz_hwt = "UPDATE pokazania SET pokaz = %s WHERE kf = %s AND tip_wt = %s"
+                cursor.execute(request_to_update_pokaz_hwt, new_pokaz_hwt) 
+                connection.commit()
+                print('Данные введены')
+            except Exception as e:
+                # метод rollback, который отменяет все изменения, внесённые в текущей транзакции, возвращая базу данных в предыдущее состояние.
+                connection.rollback()
+                print(f"Произошла ошибка: {str(e)} Транзакция откатывается.")
+            finally:
+                # Когда вы завершаете работу с курсором, например, после выполнения всех операций, важно закрыть как курсор, так и соединение
+                cursor.close()
+                connection.close()
+            await message.answer(chek, keyboard=kb.opl_zkh_fr())
+            await vk_bot.state_dispenser.delete(message.peer_id)
+        else:
+            print('Данные из чека не извлечены')
+            await message.answer(text.falling_chek, keyboard=kb.opl_zkh_fr())
+            await vk_bot.state_dispenser.delete(message.peer_id)    
+    else:
+        await message.answer(text.falling_pay, keyboard=kb.opl_zkh_fr())
+        await vk_bot.state_dispenser.delete(message.peer_id)
+
+@vk_bot.on.message(MyRule(), PayloadABCRule('no'), state=Opl_yk_fr.PREPARATION)
+async def opl_yk_fr(message: Message):
+    await message.answer('Укажи сумму, которую собираешься оплатить.')
+    await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_fr.SUMM)
+
+@vk_bot.on.message(MyRule(), state=Opl_yk_fr.SUMM)
+async def opl_yk_fr(message: Message):        
+    data_summ = message.text
+    pok_lt = ctx.get('pok_lt')
+    pok_cwt = ctx.get('pok_cwt')
+    pok_hwt = ctx.get('pok_hwt')
+    connection = con.connect(
+              host=settings.con_sql[0],
+              user=settings.con_sql[1],
+              password=settings.con_sql[2],
+              database=settings.con_sql[3]
+            )
+    cursor = connection.cursor()
+    try:
+        select = ''' SELECT inn, yk, schet, bik, price FROM flat_ls JOIN pokazania 
+        ON flat_ls.kf = pokazania.kf JOIN postavshiki ON pokazania.kp = postavshiki.kp 
+        WHERE flat_ls.kf = 'fr' AND postavshiki.kp = 'ykf' '''
+        cursor.execute(select)
+        data = cursor.fetchall()
+        inn = data[0][0]
+        l_sch = data[0][1]
+        schet = data[0][2]
+        bik = data[0][3]
+        connection.commit()
+        print('Данные получены')
+    except Exception as e:
+        # метод rollback, который отменяет все изменения, внесённые в текущей транзакции, возвращая базу данных в предыдущее состояние.
+        connection.rollback()
+        print(f"Произошла ошибка: {str(e)} Транзакция откатывается.")
+
+    finally:
+        # Когда вы завершаете работу с курсором, например, после выполнения всех операций, важно закрыть как курсор, так и соединение
+        cursor.close()
+        connection.close()
+    await message.answer(text.preparation_pay)
+    input_value = driver_jkh.oplata_yk_fr(inn=inn, l_sch=l_sch, schet=schet, bik=bik, pok_lt=pok_lt, pok_cwt=pok_cwt, pok_hwt=pok_hwt, summ=data_summ)
+    if input_value[0] is True:
+        await message.answer(text.question_pay_fr.format(input_value[2], input_value[3], input_value[4], input_value[1]), keyboard=kb.yes_no_kb())
+        await vk_bot.state_dispenser.set(message.peer_id, Opl_yk_fr.PREPARATION)
+    else:
+        await message.answer(text.falling_pay, keyboard=kb.opl_zkh_fr())
