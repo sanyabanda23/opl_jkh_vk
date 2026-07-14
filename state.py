@@ -30,3 +30,12 @@ class Opl_kr_in(BaseStateGroup):
 class Opl_kr_dm(BaseStateGroup):
     PREPARATION = 'preparation'
     SUMM = 'summ'
+
+### Оплата вывоз ТКО
+class Opl_gb_dm(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_gb_in(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
