@@ -39,3 +39,19 @@ class Opl_gb_dm(BaseStateGroup):
 class Opl_gb_in(BaseStateGroup):
     PREPARATION = 'preparation'
     SUMM = 'summ'
+
+### Оплата УК
+class Opl_yk_dm(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_yk_in(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_yk_fr(BaseStateGroup):
+    POK_LT = 'pok_lt'
+    POK_CWT = 'pok_cwt'
+    POK_HWT = 'pok_hwt'
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
