@@ -3669,3 +3669,6 @@ vkbottle.exception_factory.base_exceptions.VKAPIError_911: Keyboard format is in
 2026-07-13 at 20:55:39 | INFO | Caught keyboard interrupt. Shutting down...
 2026-07-13 at 20:57:05 | INFO | Loop will be run forever
 2026-07-13 at 20:57:05 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-14 at 19:40:29 | INFO | Loop will be run forever
+2026-07-14 at 19:40:29 | INFO | Starting BotPolling for <API token_generator=<<class 'vkbottle.api.token_generator.single.SingleTokenGenerator'>>...>
+2026-07-14 at 19:46:27 | INFO | Caught keyboard interrupt. Shutting down...
