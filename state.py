@@ -55,3 +55,23 @@ class Opl_yk_fr(BaseStateGroup):
     POK_HWT = 'pok_hwt'
     PREPARATION = 'preparation'
     SUMM = 'summ'
+
+class Opl_wm_in(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+### Оплата Водоканал
+class Opl_wt_dm(BaseStateGroup):
+    POK_WT = 'pok_wt'
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_wt_pt(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_wt_in(BaseStateGroup):
+    POK_CWT = 'pok_cwt'
+    POK_HWT = 'pok_hwt'
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
