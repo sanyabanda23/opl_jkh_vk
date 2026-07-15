@@ -75,3 +75,24 @@ class Opl_wt_in(BaseStateGroup):
     POK_HWT = 'pok_hwt'
     PREPARATION = 'preparation'
     SUMM = 'summ'
+
+### Оплата ТНС Энерго
+class Opl_lt_dm(BaseStateGroup):
+    POK_LT = 'pok_lt'
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_lt_pt(BaseStateGroup):
+    POK_LT = 'pok_lt'
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+### Оплата Газпром
+class Opl_gz_dm(BaseStateGroup):
+    POK_GZ = 'pok_gz'
+    PREPARATION = 'preparation'
+    SUMM = 'summ'
+
+class Opl_gz_fr(BaseStateGroup):
+    PREPARATION = 'preparation'
+    SUMM = 'summ'

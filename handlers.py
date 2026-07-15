@@ -21,7 +21,8 @@ from config import settings
 from state import (Info_pay_mon, Info_pay_year, Vhod, Opl_kr_dm, 
                    Opl_kr_fr, Opl_kr_in, Opl_kr_pt, Opl_gb_dm, Opl_gb_in,
                    Opl_yk_dm, Opl_yk_fr, Opl_yk_in, Opl_wm_in, Opl_wt_dm,
-                   Opl_wt_in, Opl_wt_pt)
+                   Opl_wt_in, Opl_wt_pt, Opl_gz_dm, Opl_gz_fr, Opl_lt_dm,
+                   Opl_lt_pt)
 
 vk_bot = VKBot(token=settings.BOT_TOKEN_VK)
 
