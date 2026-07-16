@@ -2497,18 +2497,18 @@ async def opl_lt_pt(message: Message):
             card = rekviz[3]
             summ = rekviz[4]
             pokaz = ctx.get('pok_lt')
-            chek = f'<b>************Чек по операции************</b>\n' \
-                   f'<b>Дата и время платежа</b>\n' \
+            chek = f'*******Чек по операции*******\n' \
+                   f'Дата и время платежа\n' \
                    f'{date:>45}\n' \
-                   f'<b>Идентификатор платежа</b>\n' \
+                   f'Идентификатор платежа\n' \
                    f'{num:>45}\n' \
-                   f'<b>Вид услуги</b>\n' \
-                   f'{usl:>45}\n' \
-                   f'<b>Показания счетчика</b>\n' \
+                   f'Вид услуги\n' \
+                   f'{usl:>30}\n' \
+                   f'Показания счетчика\n' \
                    f'{pokaz:>45}\n' \
-                   f'<b>Способ оплаты</b>\n' \
-                   f'{card:>45} \n' \
-                   f'<b>Сумма платежа</b>\n' \
+                   f'Способ оплаты\n' \
+                   f'{card:>30} \n' \
+                   f'Сумма платежа\n' \
                    f'{summ:>45} руб.'
             date_time_sql = utils.form_date(date)
             summ_sq = str(summ).replace(',', '.')
@@ -2587,3 +2587,156 @@ async def opl_lt_pt(message: Message):
     else:
         await message.answer(text.falling_pay, keyboard=kb.opl_zkh_pt())
 
+### Оплата Газоснабжения Дом
+@vk_bot.on.message(MyRule(), PayloadABCRule('gzdm'))
+async def opl_gz_dm_pok(message: Message):
+    try:
+        await vk_bot.state_dispenser.delete(message.peer_id)
+    except KeyError:
+        pass  # Состояние не найдено — игнорируем
+    await message.answer('Укажи показания счетчика газа.')
+    await vk_bot.state_dispenser.set(message.peer_id, Opl_gz_dm.POK_GZ)
+
+@vk_bot.on.message(MyRule(), state=Opl_gz_dm.POK_GZ)
+async def opl_gz_dm_preparetion(message: Message):
+    ctx.get("pok_gz", message.text)
+    connection = con.connect(
+              host=settings.con_sql[0],
+              user=settings.con_sql[1],
+              password=settings.con_sql[2],
+              database=settings.con_sql[3]
+            )
+    cursor = connection.cursor()
+    try:
+        select = ''' SELECT inn, gaz, schet, bik, pokaz, price FROM flat_ls JOIN pokazania 
+        ON flat_ls.kf = pokazania.kf JOIN postavshiki ON pokazania.kp = postavshiki.kp 
+        WHERE flat_ls.kf = 'dm' AND postavshiki.kp = 'gz' '''
+        cursor.execute(select)
+        data = cursor.fetchall()
+        inn = data[0][0]
+        l_sch = data[0][1]
+        schet = data[0][2]
+        bik = data[0][3]
+        pok = data[0][4]
+        summ = str(data[0][5])
+        connection.commit()
+        print('Данные получены')
+    except Exception as e:
+        # метод rollback, который отменяет все изменения, внесённые в текущей транзакции, возвращая базу данных в предыдущее состояние.
+        connection.rollback()
+        print(f"Произошла ошибка: {str(e)} Транзакция откатывается.")
+
+    finally:
+        # Когда вы завершаете работу с курсором, например, после выполнения всех операций, важно закрыть как курсор, так и соединение
+        cursor.close()
+        connection.close()
+    await message.answer(text.preparation_pay)
+    input_value = driver_jkh.oplata_gz(inn=inn, l_sch=l_sch, schet=schet, bik=bik, pok=ctx.get('pok_gz'), summ=summ)
+    if input_value[0] is True:
+        await message.answer(text.question_pay_gz.format(input_value[2], input_value[1]), keyboard=kb.yes_no_kb())
+        await vk_bot.state_dispenser.set(message.peer_id, Opl_gz_dm.PREPARATION)
+    else:
+        await message.answer(text.falling_pay, keyboard=kb.opl_zkh_dm())
+
+@vk_bot.on.message(MyRule(), PayloadABCRule('yes'), state=Opl_gz_dm.PREPARATION)
+async def opl_gz_dm(message: Message):        
+    if driver_jkh.oplata_gz_yes():    
+        rekviz = utils.get_info_from_chek()
+        if rekviz:
+            num = rekviz[0]
+            date = rekviz[1]
+            usl = rekviz[2]
+            card = rekviz[3]
+            summ = rekviz[4]
+            pokaz = ctx.get('pok_gz')
+            chek = f'*******Чек по операции*******\n' \
+                   f'Дата и время платежа\n' \
+                   f'{date:>45}\n' \
+                   f'Идентификатор платежа\n' \
+                   f'{num:>45}\n' \
+                   f'Вид услуги\n' \
+                   f'{usl:>30}\n' \
+                   f'Показания счетчика\n' \
+                   f'{pokaz:>45}\n' \
+                   f'Способ оплаты\n' \
+                   f'{card:>30} \n' \
+                   f'Сумма платежа\n' \
+                   f'{summ:>45} руб.'
+            date_time_sql = utils.form_date(date)
+            summ_sq = str(summ).replace(',', '.')
+            summ_sql = str(summ_sq).replace(' ', '')
+            connection = con.connect(
+              host=settings.con_sql[0],
+              user=settings.con_sql[1],
+              password=settings.con_sql[2],
+              database=settings.con_sql[3]
+            )
+            cursor = connection.cursor()
+            try:
+                new_pay = (num, date_time_sql, usl, card, summ_sql, 'dm', 'gz', pokaz)
+                request_to_insert_data = ''' INSERT INTO pay (num, date, usl, card, summ, kf, kp, pokaz) VALUES (%s, %s, %s, %s, %s, %s, %s, %s); '''
+                cursor.execute(request_to_insert_data, new_pay)
+
+                connection.commit()
+                print('Данные введены')
+            except Exception as e:
+                # метод rollback, который отменяет все изменения, внесённые в текущей транзакции, возвращая базу данных в предыдущее состояние.
+                connection.rollback()
+                print(f"Произошла ошибка: {str(e)} Транзакция откатывается.")
+            finally:
+                # Когда вы завершаете работу с курсором, например, после выполнения всех операций, важно закрыть как курсор, так и соединение
+                cursor.close()
+                connection.close()
+            await message.answer(chek, keyboard=kb.opl_zkh_dm())
+            await vk_bot.state_dispenser.delete(message.peer_id)
+        else:
+            print('Данные из чека не извлечены')
+            await message.answer(text.falling_chek, keyboard=kb.opl_zkh_dm())
+            await vk_bot.state_dispenser.delete(message.peer_id)    
+    else:
+        await message.answer(text.falling_pay, keyboard=kb.opl_zkh_dm())
+        await vk_bot.state_dispenser.delete(message.peer_id)
+
+@vk_bot.on.message(MyRule(), PayloadABCRule('no'), state=Opl_gz_dm.PREPARATION)
+async def opl_gz_dm(message: Message):
+    await message.answer('Укажи сумму, которую собираешься оплатить.')
+    await vk_bot.state_dispenser.set(message.peer_id, Opl_gz_dm.SUMM)
+
+@vk_bot.on.message(MyRule(), state=Opl_gz_dm.SUMM)
+async def opl_gz_dm(message: Message):
+    data_summ = message.text
+    connection = con.connect(
+              host=settings.con_sql[0],
+              user=settings.con_sql[1],
+              password=settings.con_sql[2],
+              database=settings.con_sql[3]
+            )
+    cursor = connection.cursor()
+    try:
+        select = ''' SELECT inn, gaz, schet, bik FROM flat_ls JOIN pokazania 
+        ON flat_ls.kf = pokazania.kf JOIN postavshiki ON pokazania.kp = postavshiki.kp 
+        WHERE flat_ls.kf = 'dm' AND postavshiki.kp = 'gz' '''
+        cursor.execute(select)
+        data = cursor.fetchall()
+        inn = data[0][0]
+        l_sch = data[0][1]
+        schet = data[0][2]
+        bik = data[0][3]
+        connection.commit()
+        print('Данные получены')
+    except Exception as e:
+        # метод rollback, который отменяет все изменения, внесённые в текущей транзакции, возвращая базу данных в предыдущее состояние.
+        connection.rollback()
+        print(f"Произошла ошибка: {str(e)} Транзакция откатывается.")
+
+    finally:
+        # Когда вы завершаете работу с курсором, например, после выполнения всех операций, важно закрыть как курсор, так и соединение
+        cursor.close()
+        connection.close()
+    await message.answer(text.preparation_pay)
+    input_value = driver_jkh.oplata_gz(inn=inn, l_sch=l_sch, schet=schet, bik=bik, pok=ctx.get('pok_gz'), summ=data_summ)
+    if input_value[0] is True:
+        await message.answer(text.question_pay_gz.format(input_value[2], input_value[1]), keyboard=kb.yes_no_kb())
+        await vk_bot.state_dispenser.set(message.peer_id, Opl_gz_dm.PREPARATION)
+    else:
+        await message.answer(text.falling_pay, keyboard=kb.opl_zkh_dm())
